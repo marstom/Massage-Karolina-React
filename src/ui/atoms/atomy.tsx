@@ -14,6 +14,9 @@ const MenuBar = styled.div`
   background: ${otherColors.secondaryOpaque};
   color: ${colors.textColor};
   padding-top:50px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 
 `
 

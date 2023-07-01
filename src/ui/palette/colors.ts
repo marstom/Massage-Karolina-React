@@ -11,4 +11,5 @@ export const otherColors = {
   darkerGreen: '#2F8A83',
   primaryOpaque: "rgba(34,40,49,0.5)",
   secondaryOpaque: "rgba(0,0,0,0.5)",
+  black: 'rgb(26,26,26)'
 }
