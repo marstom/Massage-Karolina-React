@@ -13,6 +13,9 @@ const Footer_ = styled.div`
   display: grid;
   //grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: repeat(12, 1fr);
+
+  //height: 50px;
+  margin-top: auto;
 `
 
 const FlexEl = styled.div`

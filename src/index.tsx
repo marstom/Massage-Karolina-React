@@ -4,35 +4,43 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {colors} from 'ui/palette'
 
-import { createGlobalStyle } from 'styled-components'
+import {createGlobalStyle} from 'styled-components'
+import {BrowserRouter,} from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: ${colors.primary};
-  color: ${colors.textColor};
-}
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: ${colors.primary};
+    color: ${colors.textColor};
+    
+    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+  }
 
 `
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-      <GlobalStyle/>
-        <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <GlobalStyle/>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,7 +1,7 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import leavesImg from "assets/leaves-small.jpg"
 
-const AboutMeContent = styled.div`
+export const AboutMeContent = styled.div`
   padding-top: 120px;
   // background-image: linear-gradient(to bottom,
   // rgba(68, 65, 65, 0.3),
@@ -13,7 +13,7 @@ const AboutMeContent = styled.div`
   //margin: 0px;
 `
 
-const LeavesImage = styled.div`
+export const LeavesImage = styled.div`
   padding-top: 120px;
   background-image: linear-gradient(to bottom,
   rgba(68, 65, 65, 0.3),
@@ -23,7 +23,7 @@ const LeavesImage = styled.div`
   position: relative;
   margin-top: -120px;
   width: 100%;
-  top:0px;
+  top: 0px;
   bottom: 0px;
   z-index: -1;
   //margin: 0px;
@@ -31,22 +31,3 @@ const LeavesImage = styled.div`
 `
 
 
-type Props = {
-    children?: React.ReactNode
-};
-export const AboutMePage: React.FC<Props> = (props) => {
-    return (
-        <>
-            <AboutMeContent>
-                <LeavesImage>To jest opis na warstwie obrazka</LeavesImage>
-                <div>Ifniajfefiojofj faosi</div>
-                <div>Ifniajfefiojofj faosi</div>
-                <div>Ifniajfefiojofj faosi</div>
-                <div>Ifniajfefiojofj faosi</div>
-                <div>Ifniajfefiojofj faosi</div>
-                {props.children}
-            </AboutMeContent>
-
-        </>
-    )
-}

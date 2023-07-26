@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import {colors, otherColors} from 'ui/palette'
+import {Link} from "react-router-dom";
 
 export const Sekcja = styled.div`
   background: antiquewhite;
 `
 
-const MenuBar = styled.div`
+export const MenuBar = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-content: center;
@@ -20,23 +21,20 @@ const MenuBar = styled.div`
 
 `
 
-const Item = styled.div`
+export const Item = styled(Link)`
   font-size: 150%;
   //background: #15342b;
+  color: ${colors.textColor};
   margin: 10px;
   padding-block: 15px;
   padding: 0px 30px 0px 30px;
   &:hover {
     color: ${colors.lightBlue}
   }
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
+  text-decoration: none;
 `
 
 
-export const Menu = () => {
-    return (<MenuBar>
-        <Item>O mnie</Item>
-        <Item>Masaże</Item>
-        <Item>Blog</Item>
-        <Item>Kontakt</Item>
-    </MenuBar>)
-}
