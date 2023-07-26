@@ -27,3 +27,9 @@ npm t             # testy
 ## Kolorki designy
 
 - [Propozycja koloru](https://colorhunt.co/palette/222831393e4600adb5eeeeee)
+
+
+## Utilities
+
+Strona generator sinusoid do obrazków
+https://css-generators.com/wavy-shapes/

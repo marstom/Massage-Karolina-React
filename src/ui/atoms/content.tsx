@@ -28,6 +28,14 @@ export const LeavesImage = styled.div`
   z-index: -1;
   //margin: 0px;
   //padding: 0px;
+
+
+  --mask:
+          radial-gradient(239.24px at 50% calc(100% - 328.60px),#000 99%,#0000 101%) calc(50% - 248px) 0/496px 100%,
+          radial-gradient(239.24px at 50% calc(100% + 204.60px),#0000 99%,#000 101%) 50% calc(100% - 124px)/496px 100% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  
 `
 
 
