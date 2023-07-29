@@ -18,6 +18,9 @@ import { AboutMePage } from "ui/pages/AboutMePage";
 import { Massage } from "ui/pages/Massage";
 import { BlogMainPage } from "ui/pages/BlogMainPage";
 import { ContactPage } from "ui/pages/ContactPage";
+import { FullPostPage } from "ui/pages/FullPostPage";
+
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -28,13 +31,8 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     background: ${colors.primary};
     color: ${colors.textColor};
-    
-    
-    /* min-height: 100vh; */
     margin: 0;
     height: 100%;
-    /* display: flex; */
-    /* flex-direction: column; */
   }
 
   code {
@@ -55,11 +53,17 @@ const router = createBrowserRouter(
         <Route path="" element={<AboutMePage />} />
         <Route path="masaze" element={<Massage />} />
         <Route path="blog" element={<BlogMainPage />} />
+        <Route path="blog/:id" element={<FullPostPage />} />
         <Route path="kontakt" element={<ContactPage />} />
       </Route>
     </>,
   ),
 );
+
+const client = new ApolloClient({
+  uri: `${process.env.REACT_APP_BASE_BACKEND_URL}/graphql`,
+  cache: new InMemoryCache(),
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -68,7 +72,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <GlobalStyle />
-    <RouterProvider router={router} />
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
   </React.StrictMode>,
 );
 
