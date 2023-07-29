@@ -51,21 +51,19 @@ const GlobalStyle = createGlobalStyle`
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-    <Route path="/" element={<App />}>
-      <Route path="" element={<AboutMePage />} />
-      <Route path="masaze" element={<Massage />} />
-      <Route path="blog" element={<BlogMainPage />} />
-      <Route path="kontakt" element={<ContactPage />} />
-    </Route>
-    </>
-  )
-)
+      <Route path="/" element={<App />}>
+        <Route path="" element={<AboutMePage />} />
+        <Route path="masaze" element={<Massage />} />
+        <Route path="blog" element={<BlogMainPage />} />
+        <Route path="kontakt" element={<ContactPage />} />
+      </Route>
+    </>,
+  ),
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
-
-
 
 root.render(
   <React.StrictMode>

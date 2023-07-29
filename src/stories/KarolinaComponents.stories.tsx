@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Sekcja } from "ui/atoms/atomy";
 
 const meta = {
   title: "Karolina/Komponenty",
@@ -18,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const My = () => {
   return (
     <>
-      <Sekcja>Hejko </Sekcja>
+      <div>Hejko </div>
     </>
   );
 };

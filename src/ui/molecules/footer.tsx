@@ -8,15 +8,11 @@ const Footer_ = styled.div`
   background-color: ${otherColors.black};
   color: ${colors.lightBlue};
   border-radius: 0.5px;
-  height: 50px;
+  height: 70px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-
-  margin-bottom:60px;
-  /* margin-top: 50%; */
-  /* padding-bottom: 100%; */
-
-  margin-top:auto;
+  margin-bottom: 0px;
+  margin-top: auto;
 `;
 
 const FlexEl = styled.div`
