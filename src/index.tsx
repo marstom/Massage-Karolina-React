@@ -7,9 +7,20 @@ import { colors } from "ui/palette";
 import { createGlobalStyle } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 
+import {
+  Link,
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import { AboutMePage } from "ui/pages/AboutMePage";
+import { Massage } from "ui/pages/Massage";
+import { BlogMainPage } from "ui/pages/BlogMainPage";
+import { ContactPage } from "ui/pages/ContactPage";
+
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,9 +30,11 @@ const GlobalStyle = createGlobalStyle`
     color: ${colors.textColor};
     
     
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    /* min-height: 100vh; */
+    margin: 0;
+    height: 100%;
+    /* display: flex; */
+    /* flex-direction: column; */
   }
 
   code {
@@ -29,17 +42,35 @@ const GlobalStyle = createGlobalStyle`
     monospace;
   }
 
+  #root {
+    display: block;
+    height: 100%;
+  }
 `;
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+    <Route path="/" element={<App />}>
+      <Route path="" element={<AboutMePage />} />
+      <Route path="masaze" element={<Massage />} />
+      <Route path="blog" element={<BlogMainPage />} />
+      <Route path="kontakt" element={<ContactPage />} />
+    </Route>
+    </>
+  )
+)
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
+
+
+
 root.render(
   <React.StrictMode>
     <GlobalStyle />
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
 

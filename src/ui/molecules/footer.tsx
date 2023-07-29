@@ -10,13 +10,13 @@ const Footer_ = styled.div`
   border-radius: 0.5px;
   height: 50px;
   display: grid;
-  //grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: repeat(12, 1fr);
 
-  //height: 50px;
-  /* margin-bottom:60px */
+  margin-bottom:60px;
   /* margin-top: 50%; */
   /* padding-bottom: 100%; */
+
+  margin-top:auto;
 `;
 
 const FlexEl = styled.div`
