@@ -3,6 +3,7 @@
 Jest to storona wizytówka.
 
 Funkcjonalności:
+
 - foto w tle statyczny content
 - ładny pasek menu
 - blog/wipsy
@@ -11,7 +12,6 @@ Cechy:
 
 - będzie od zera
 - na google firebase będzie bazować
-
 
 ## Setup
 
@@ -23,11 +23,9 @@ npm t             # testy
 
 ```
 
-
 ## Kolorki designy
 
 - [Propozycja koloru](https://colorhunt.co/palette/222831393e4600adb5eeeeee)
-
 
 ## Utilities
 
