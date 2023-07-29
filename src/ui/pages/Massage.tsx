@@ -1,10 +1,5 @@
-
-import React from 'react'
+import React from "react";
 
 export const Massage = () => {
-  return (
-    <div>Massage
-    
-    </div>
-  )
-}
+  return <div>Massage</div>;
+};
