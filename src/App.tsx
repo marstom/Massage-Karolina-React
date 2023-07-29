@@ -1,9 +1,10 @@
 import React from "react";
 import { Footer } from "./ui/molecules/footer";
 import { Route, Routes } from "react-router-dom";
-import { AboutMePage } from "./ui/pages/about_me_page";
+import { AboutMePage } from "./ui/pages/AboutMePage";
 import { Menu } from "./ui/molecules/menu";
-import { BlogMainPage } from "./ui/pages/blog_main_page";
+import { BlogMainPage } from "./ui/pages/BlogMainPage";
+import { Massage } from "./ui/pages/Massage";
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
       <Menu />
       <Routes>
         <Route path={"/"} element={<AboutMePage />} />
-        <Route path={"/masaze"} element={<div>masaże....</div>} />
+        <Route path={"/masaze"} element={<Massage />} />
         <Route path={"/blog"} element={<BlogMainPage />} />
       </Routes>
       <Footer />

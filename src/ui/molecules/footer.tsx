@@ -14,7 +14,7 @@ const Footer_ = styled.div`
   grid-template-columns: repeat(12, 1fr);
 
   //height: 50px;
-  margin-top: 1vh;
+  /* margin-bottom:60px */
   /* margin-top: 50%; */
   /* padding-bottom: 100%; */
 `;
