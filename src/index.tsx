@@ -21,6 +21,7 @@ import { ContactPage } from "ui/pages/ContactPage";
 import { FullPostPage } from "ui/pages/FullPostPage";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { TestPageWithFunnyCats } from "ui/pages/TestPageWithFunnyCats";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
         <Route path="blog" element={<BlogMainPage />} />
         <Route path="blog/:id" element={<FullPostPage />} />
         <Route path="kontakt" element={<ContactPage />} />
+        <Route path="test-page-with-funny-cats/:id" element={<TestPageWithFunnyCats />} />
       </Route>
     </>,
   ),

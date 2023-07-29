@@ -43,6 +43,7 @@ export const Menu = () => {
       <Item to={"/masaze"}>Masaże</Item>
       <Item to={"/blog"}>Blog</Item>
       <Item to={"/kontakt"}>Kontakt</Item>
+      <Item to={"/test-page-with-funny-cats/1"}>FC</Item>
     </MenuBar>
   );
 };
