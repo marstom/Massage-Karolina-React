@@ -26,6 +26,8 @@ npm t             # testy
 ## Kolorki designy
 
 - [Propozycja koloru](https://colorhunt.co/palette/222831393e4600adb5eeeeee)
+- [Ikonki](https://www.flaticon.com/search?word=instagram)
+
 
 ## Utilities
 

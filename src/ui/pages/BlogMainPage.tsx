@@ -2,21 +2,42 @@ import React from "react";
 import styled from "styled-components";
 import { BlogMinifiedEntry } from "../atoms/blog_minified_entry";
 import { Content } from "ui/atoms/Content";
+import { gql, useQuery } from "@apollo/client";
+import { Posts } from "ui/types/blogPosts";
 
-type Props = {};
 
-export const BlogMainPage = (props: Props) => {
+
+
+const postsQuery = gql`
+query Posts {
+    posts {
+        data {
+            id
+            attributes {
+                title
+                body
+                shortDescription
+            }
+        }
+    }
+}
+`
+
+export const BlogMainPage: React.FC<{}> = () => {
+  const { loading, error, data } = useQuery<Posts>(postsQuery);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :( mmm</p>;
   return (
     <Content>
-      <BlogMinifiedEntry title={"Title"} content={"To jest opis"} />
-      <BlogMinifiedEntry
-        title={"Inny post"}
-        content={"To jest opi asdf asdfseffaes eaf "}
-      />
-      <BlogMinifiedEntry
-        title={"Inny post"}
-        content={"To jest opi asdf asdfseffaes eaf "}
-      />
+      {data!.posts.data.map(post => (
+        <BlogMinifiedEntry 
+          key={post.id} 
+          id={post.id}
+          title={post.attributes.title} 
+          content={post.attributes.shortDescription}
+        />
+      ))}
     </Content>
   );
 };

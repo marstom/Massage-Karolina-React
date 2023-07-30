@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { colors, otherColors } from "ui/palette";
-
-type Props = {
-  title: string;
-  content: string;
-};
+import parse from 'html-react-parser'
+import { Link } from "react-router-dom";
 
 const BorderedBlogpostDiv = styled.div`
   border-color: ${otherColors.darkerGreen};
@@ -27,7 +24,7 @@ const BorderedBlogpostDiv = styled.div`
   display: flex;
 `;
 
-const BlogpostButton = styled.a`
+const BlogpostButton = styled(Link)`
   //margin-top: 50px;
   //position: relative;
   //right: 0;
@@ -36,12 +33,23 @@ const BlogpostButton = styled.a`
   display: flex;
   width: 10em;
 `;
+
+type Props = {
+  title: string;
+  content: string;
+  id: string
+};
+
+
 export const BlogMinifiedEntry = (props: Props) => {
+
+  const parser = new DOMParser();
+
   return (
     <BorderedBlogpostDiv>
       <h2>{props.title}</h2>
-      <div>{props.content}</div>
-      <BlogpostButton>Czytaj dalej...</BlogpostButton>
+      <div>{parse(props.content)}</div>
+      <BlogpostButton to={`/blog/${props.id}`}>Czytaj dalej...</BlogpostButton>
     </BorderedBlogpostDiv>
   );
 };
