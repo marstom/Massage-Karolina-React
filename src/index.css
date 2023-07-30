@@ -1,0 +1,4 @@
+@font-face {
+    font-family: 'ScriptBc';
+    src: local('ScriptBc'), url(./assets/fonts/script-bc.woff) format('woff');
+}

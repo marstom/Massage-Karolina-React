@@ -6,6 +6,7 @@ import { colors } from "ui/palette";
 
 import { createGlobalStyle } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
+import "index.css"
 
 import {
   Link,
@@ -45,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
     display: block;
     height: 100%;
   }
+
 `;
 
 const router = createBrowserRouter(

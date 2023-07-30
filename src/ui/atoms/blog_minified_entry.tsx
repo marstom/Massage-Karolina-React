@@ -22,6 +22,7 @@ const BorderedBlogpostDiv = styled.div`
   justify-content: space-between;
   flex-direction: column;
   display: flex;
+
 `;
 
 const BlogpostButton = styled(Link)`
