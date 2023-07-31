@@ -6,7 +6,7 @@ import { colors } from "ui/palette";
 
 import { createGlobalStyle } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
-import "index.css"
+import "index.css";
 
 import {
   Link,
@@ -22,7 +22,8 @@ import { ContactPage } from "ui/pages/ContactPage";
 import { FullPostPage } from "ui/pages/FullPostPage";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { TestPageWithFunnyCats } from "ui/pages/TestPageWithFunnyCats";
+import { TestPageWithFunnyCats } from "ui/pages/test_pages/TestPageWithFunnyCats";
+import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -58,7 +59,11 @@ const router = createBrowserRouter(
         <Route path="blog" element={<BlogMainPage />} />
         <Route path="blog/:id" element={<FullPostPage />} />
         <Route path="kontakt" element={<ContactPage />} />
-        <Route path="test-page-with-funny-cats/:id" element={<TestPageWithFunnyCats />} />
+        <Route
+          path="test-page-with-funny-cats/:id"
+          element={<TestPageWithFunnyCats />}
+        />
+        <Route path="test-page-styled" element={<TestPageStyled />} />
       </Route>
     </>,
   ),

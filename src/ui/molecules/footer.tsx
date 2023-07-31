@@ -4,9 +4,9 @@ import { colors, otherColors } from "ui/palette";
 
 import styled, { css } from "styled-components";
 
-import fb from 'assets/icons/facebook_bw.png'
-import youtube from 'assets/icons/youtube_bw.png'
-import insta from 'assets/icons/insta_bw.png'
+import fb from "assets/icons/facebook_bw.png";
+import youtube from "assets/icons/youtube_bw.png";
+import insta from "assets/icons/insta_bw.png";
 
 const Footer_ = styled.div`
   background-color: ${otherColors.black};
@@ -27,7 +27,7 @@ const FlexEl = styled.div`
 const Icon = styled.img`
   max-width: 30px;
   -webkit-filter: invert(1);
-`
+`;
 
 const gc = (col: string): React.CSSProperties => ({
   gridColumn: col,
@@ -40,9 +40,15 @@ export const Footer = (props: Props) => {
       <FlexEl style={gc("1 / span 3")}>Karolina Banaszewska</FlexEl>
       {/*<FlexEl style={gc("2")}>Karolina Banaszewska</FlexEl>*/}
       {/*<FlexEl style={gc("3 / span 2")}>Karolina Banaszewska</FlexEl> occupy 2 cols*/}
-      <FlexEl style={gc("14")}><Icon src={fb}></Icon></FlexEl>
-      <FlexEl style={gc("15")}><Icon src={youtube} /></FlexEl>
-      <FlexEl style={gc("16")}><Icon src={insta} /></FlexEl>
+      <FlexEl style={gc("14")}>
+        <Icon src={fb}></Icon>
+      </FlexEl>
+      <FlexEl style={gc("15")}>
+        <Icon src={youtube} />
+      </FlexEl>
+      <FlexEl style={gc("16")}>
+        <Icon src={insta} />
+      </FlexEl>
     </Footer_>
   );
 };

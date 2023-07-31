@@ -28,6 +28,11 @@ npm t             # testy
 - [Propozycja koloru](https://colorhunt.co/palette/222831393e4600adb5eeeeee)
 - [Ikonki](https://www.flaticon.com/search?word=instagram)
 
+## Biblioteki
+
+- StyledComponents alternatywa dla sass i css, lubię:
+  - [Styled w typeScripcie](https://fettblog.eu/typescript-react/styles/)
+  - [Oficjalna dokumentacja](https://styled-components.com/docs/basics#adapting-based-on-props)
 
 ## Utilities
 

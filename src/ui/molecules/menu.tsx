@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors, otherColors } from "ui/palette";
+import { NonStyledLink } from "../atoms/NonStyledLink";
 // import font from "assets/fonts/script-bc.woff"
 
-export const MenuBar = styled.div`
+const MenuBar = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-content: center;
@@ -18,32 +19,20 @@ export const MenuBar = styled.div`
   z-index: 100;
 `;
 
-export const Item = styled(Link)`
+const Item = styled(NonStyledLink)`
   font-size: 150%;
   //background: #15342b;
-  color: ${colors.textColor};
   margin: 10px;
   padding-block: 15px;
   padding: 0px 30px 0px 30px;
-  &:hover {
-    color: ${colors.lightBlue};
-  }
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
-  text-decoration: none;
 `;
 
 const Logo = styled.div`
-position: fixed;
-top: 1.2vh;
-font-size: 35px;
-font-family: "ScriptBc";
-`
+  position: fixed;
+  top: 1.2vh;
+  font-size: 35px;
+  font-family: "ScriptBc";
+`;
 
 export const Menu = () => {
   return (

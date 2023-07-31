@@ -39,42 +39,61 @@ export const LeavesImage = styled.div`
   font-size: 120%;
   justify-content: center;
   text-align: center;
-
 `;
-
 
 const Centered = styled.div`
   text-align: center;
-`
-const Paragraph = styled.div<{ $centered?: boolean; }>`
-font-size: 120%;
-margin: 3vh 5vh 5vh 5vh;
-line-height: 130%;
-text-align: ${props => props.$centered ? "center" : "justify"};;
-/* text-align: justify; */
-/* text-align: center; */
-`
+`;
+const Paragraph = styled.div<{ $centered?: boolean }>`
+  font-size: 120%;
+  margin: 3vh 5vh 5vh 5vh;
+  line-height: 130%;
+  text-align: ${(props) => (props.$centered ? "center" : "justify")};
+  /* text-align: justify; */
+  /* text-align: center; */
+`;
 
 type Props = {
   children?: React.ReactNode;
 };
 export const AboutMePage: React.FC<Props> = (props) => {
   return (
-      <Content>
-        <LeavesImage>
-          <h1>Karolina</h1>
-          <h2>Sztuka Dotyku</h2>
-          <p><i>Lomi Lomi</i></p>
-          <p><i>Tantra</i></p>
-          <p><i>Access Bars</i></p>
-          </LeavesImage>
-          <Centered>
-            <h1>Witaj</h1>
-            <Paragraph $centered>Mam na imię Karolina</Paragraph>
-            <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</Paragraph>
-            <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</Paragraph>
-          </Centered>
-
-      </Content>
+    <Content>
+      <LeavesImage>
+        <h1>Karolina</h1>
+        <h2>Sztuka Dotyku</h2>
+        <p>
+          <i>Lomi Lomi</i>
+        </p>
+        <p>
+          <i>Tantra</i>
+        </p>
+        <p>
+          <i>Access Bars</i>
+        </p>
+      </LeavesImage>
+      <Centered>
+        <h1>Witaj</h1>
+        <Paragraph $centered>Mam na imię Karolina</Paragraph>
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </Paragraph>
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum
+        </Paragraph>
+      </Centered>
+    </Content>
   );
 };
