@@ -40,3 +40,8 @@ npm t             # testy
 
 Strona generator sinusoid do obrazków
 https://css-generators.com/wavy-shapes/
+
+
+## Doker
+
+- certifikaty [Poradnik digital ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose)
