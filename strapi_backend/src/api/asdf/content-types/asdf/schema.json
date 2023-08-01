@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asdfs",
+  "info": {
+    "singularName": "asdf",
+    "pluralName": "asdfs",
+    "displayName": "TestPost",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "toolbarVersion": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "toolbarBaloonVersion": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "BlockBaloonVersion": {
+      "type": "customField",
+      "options": {
+        "preset": "blockBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "MarkdownVersion": {
+      "type": "customField",
+      "options": {
+        "preset": "markdown"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

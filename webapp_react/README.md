@@ -34,6 +34,8 @@ npm t             # testy
   - [Styled w typeScripcie](https://fettblog.eu/typescript-react/styles/)
   - [Oficjalna dokumentacja](https://styled-components.com/docs/basics#adapting-based-on-props)
 
+- Testowanie JEST'em
+  - [Mock na MSW graphql](https://mswjs.io/docs/getting-started/mocks/graphql-api)
 ## Utilities
 
 Strona generator sinusoid do obrazków
