@@ -24,16 +24,17 @@ export const LeavesImage = styled.div`
   bottom: 0px;
   z-index: -1;
 
-  --mask: radial-gradient(
-        239.24px at 50% calc(100% - 328.6px),
-        #000 99%,
-        #0000 101%
-      )
-      calc(50% - 248px) 0/496px 100%,
-    radial-gradient(239.24px at 50% calc(100% + 204.6px), #0000 99%, #000 101%)
-      50% calc(100% - 124px) / 496px 100% repeat-x;
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
+  // fala
+  //--mask: radial-gradient(
+  //      239.24px at 50% calc(100% - 328.6px),
+  //      #000 99%,
+  //      #0000 101%
+  //    )
+  //    calc(50% - 248px) 0/496px 100%,
+  //  radial-gradient(239.24px at 50% calc(100% + 204.6px), #0000 99%, #000 101%)
+  //    50% calc(100% - 124px) / 496px 100% repeat-x;
+  //-webkit-mask: var(--mask);
+  //mask: var(--mask);
 
   // fonty
   font-size: 120%;
@@ -49,8 +50,6 @@ const Paragraph = styled.div<{ $centered?: boolean }>`
   margin: 3vh 5vh 5vh 5vh;
   line-height: 130%;
   text-align: ${(props) => (props.$centered ? "center" : "justify")};
-  /* text-align: justify; */
-  /* text-align: center; */
 `;
 
 type Props = {

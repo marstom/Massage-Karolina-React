@@ -24,6 +24,7 @@ import { FullPostPage } from "ui/pages/FullPostPage";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { TestPageWithFunnyCats } from "ui/pages/test_pages/TestPageWithFunnyCats";
 import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
+import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -64,6 +65,7 @@ const router = createBrowserRouter(
           element={<TestPageWithFunnyCats />}
         />
         <Route path="test-page-styled" element={<TestPageStyled />} />
+          <Route path="test-responsivness" element={<TestResponsivness />} />
       </Route>
     </>,
   ),

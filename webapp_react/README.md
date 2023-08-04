@@ -28,11 +28,13 @@ npm t             # testy
 - [Propozycja koloru](https://colorhunt.co/palette/222831393e4600adb5eeeeee)
 - [Ikonki](https://www.flaticon.com/search?word=instagram)
 
-## Biblioteki
+## Biblioteki i techstack
 
 - StyledComponents alternatywa dla sass i css, lubię:
   - [Styled w typeScripcie](https://fettblog.eu/typescript-react/styles/)
   - [Oficjalna dokumentacja](https://styled-components.com/docs/basics#adapting-based-on-props)
+  - [Jak zrobić responsywność w styled components?](https://medium.com/styled-components/responsive-styled-components-in-3-minutes-ae3b58cca57b)
+  - [@media screen w css styled](https://medium.com/styled-components/how-to-create-responsive-ui-with-styled-components-c6b71a3ce172)
 
 - Testowanie JEST'em
   - [Mock na MSW graphql](https://mswjs.io/docs/getting-started/mocks/graphql-api)
@@ -45,3 +47,13 @@ https://css-generators.com/wavy-shapes/
 ## Doker
 
 - certifikaty [Poradnik digital ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose)
+
+# Inne
+
+## TODO
+- usuń fale
+- dodaj MSW testy api i apollo testy
+
+
+## WebStorm
+- rsc - react template function component
