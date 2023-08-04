@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 
 import CSS from "csstype";
-import { bool } from "prop-types";
 
 const a: CSS.Properties = {
   backgroundColor: "azure",

@@ -22,12 +22,8 @@ type FooterLink = {
   };
 };
 
-type Data = {
+type FooterLinkApiResponse = {
   footerLink: FooterLink;
 };
 
-type FooterLinkApiResponse = {
-  data: Data;
-};
-
-export default Data;
+export default FooterLinkApiResponse;

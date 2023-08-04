@@ -5,15 +5,13 @@ import reportWebVitals from "./reportWebVitals";
 import { colors } from "ui/palette";
 
 import { createGlobalStyle } from "styled-components";
-import { BrowserRouter } from "react-router-dom";
 import "index.css";
 
 import {
-  Link,
-  Route,
-  RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
+  Route,
+  RouterProvider,
 } from "react-router-dom";
 import { AboutMePage } from "ui/pages/AboutMePage";
 import { Massage } from "ui/pages/Massage";
@@ -21,7 +19,7 @@ import { BlogMainPage } from "ui/pages/BlogMainPage";
 import { ContactPage } from "ui/pages/ContactPage";
 import { FullPostPage } from "ui/pages/FullPostPage";
 
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { TestPageWithFunnyCats } from "ui/pages/test_pages/TestPageWithFunnyCats";
 import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
 import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
