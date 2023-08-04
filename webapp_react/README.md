@@ -31,6 +31,7 @@ npm t             # testy
 ## Biblioteki i techstack
 
 - StyledComponents alternatywa dla sass i css, lubię:
+
   - [Styled w typeScripcie](https://fettblog.eu/typescript-react/styles/)
   - [Oficjalna dokumentacja](https://styled-components.com/docs/basics#adapting-based-on-props)
   - [Jak zrobić responsywność w styled components?](https://medium.com/styled-components/responsive-styled-components-in-3-minutes-ae3b58cca57b)
@@ -38,11 +39,11 @@ npm t             # testy
 
 - Testowanie JEST'em
   - [Mock na MSW graphql](https://mswjs.io/docs/getting-started/mocks/graphql-api)
+
 ## Utilities
 
 Strona generator sinusoid do obrazków
 https://css-generators.com/wavy-shapes/
-
 
 ## Doker
 
@@ -51,9 +52,10 @@ https://css-generators.com/wavy-shapes/
 # Inne
 
 ## TODO
+
 - usuń fale
 - dodaj MSW testy api i apollo testy
 
-
 ## WebStorm
+
 - rsc - react template function component

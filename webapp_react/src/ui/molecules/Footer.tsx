@@ -7,6 +7,9 @@ import styled, { css } from "styled-components";
 import fb from "assets/icons/facebook_bw.png";
 import youtube from "assets/icons/youtube_bw.png";
 import insta from "assets/icons/insta_bw.png";
+import { gql, useQuery } from "@apollo/client";
+import { Posts } from "../types/blogPosts";
+import FooterLinkApiResponse from "../types/footerLink";
 
 const Footer_ = styled.div`
   background-color: ${otherColors.black};
@@ -19,9 +22,15 @@ const Footer_ = styled.div`
   margin-top: auto;
 `;
 
-const FlexEl = styled.div`
+const FlexEl = styled.a<{ $gridCol: string }>`
   text-align: center;
   align-self: center;
+  grid-column: ${(props) => props.$gridCol};
+`;
+const FlexElIco = styled(FlexEl)<{ $gridCol: number }>`
+  grid-column: ${(props) => {
+    return 17 - props.$gridCol;
+  }};
 `;
 
 const Icon = styled.img`
@@ -29,26 +38,62 @@ const Icon = styled.img`
   -webkit-filter: invert(1);
 `;
 
-const gc = (col: string): React.CSSProperties => ({
-  gridColumn: col,
-});
+const query = gql`
+  query FooterLink {
+    footerLink {
+      data {
+        id
+        attributes {
+          link {
+            name
+            icon {
+              data {
+                id
+                attributes {
+                  name
+                  url
+                }
+              }
+            }
+            url
+            positionFromRight
+          }
+        }
+      }
+    }
+  }
+`;
 
 type Props = {};
 export const Footer = (props: Props) => {
+  const { loading, error, data } = useQuery<FooterLinkApiResponse>(query);
+  const baseUrl = process.env.REACT_APP_BASE_BACKEND_URL;
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :( mmm</p>;
+
+  const sortedData = (data: FooterLinkApiResponse) => {
+    let linkData = [...data!.footerLink.data.attributes.link]; // copy
+
+    linkData.sort((a, b) => {
+      if (a.positionFromRight > b.positionFromRight) {
+        return -1;
+      }
+      if (a.positionFromRight < b.positionFromRight) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    return linkData;
+  };
   return (
     <Footer_>
-      <FlexEl style={gc("1 / span 3")}>Karolina Banaszewska</FlexEl>
-      {/*<FlexEl style={gc("2")}>Karolina Banaszewska</FlexEl>*/}
-      {/*<FlexEl style={gc("3 / span 2")}>Karolina Banaszewska</FlexEl> occupy 2 cols*/}
-      <FlexEl style={gc("14")}>
-        <Icon src={fb}></Icon>
-      </FlexEl>
-      <FlexEl style={gc("15")}>
-        <Icon src={youtube} />
-      </FlexEl>
-      <FlexEl style={gc("16")}>
-        <Icon src={insta} />
-      </FlexEl>
+      {sortedData(data!).map((link) => (
+        <FlexElIco href={link.url} $gridCol={link.positionFromRight}>
+          <Icon src={baseUrl + link.icon.data.attributes.url}></Icon>
+        </FlexElIco>
+      ))}
     </Footer_>
   );
 };

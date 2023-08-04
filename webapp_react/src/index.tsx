@@ -65,7 +65,7 @@ const router = createBrowserRouter(
           element={<TestPageWithFunnyCats />}
         />
         <Route path="test-page-styled" element={<TestPageStyled />} />
-          <Route path="test-responsivness" element={<TestResponsivness />} />
+        <Route path="test-responsivness" element={<TestResponsivness />} />
       </Route>
     </>,
   ),
