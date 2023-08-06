@@ -22,19 +22,15 @@ import { ApolloProvider } from "@apollo/client";
 import { TestPageWithFunnyCats } from "ui/pages/test_pages/TestPageWithFunnyCats";
 import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
 import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
-import {client} from "./apolloClient";
+import { client } from "./apolloClient";
 import * as process from "process";
 
-
-
 // Mocks instead real API
-console.log(`Process env ${process.env.REACT_APP_MSW_MOCK}`)
+console.log(`Process env ${process.env.REACT_APP_MSW_MOCK}`);
 if (process.env.REACT_APP_MSW_MOCK === "mock") {
-    const { worker } = require('./mocks/browser')
-    worker.start()
+  const { worker } = require("./mocks/browser");
+  worker.start();
 }
-
-
 
 const GlobalStyle = createGlobalStyle`
   body {

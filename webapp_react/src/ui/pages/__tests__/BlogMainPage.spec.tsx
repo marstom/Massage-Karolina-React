@@ -23,7 +23,7 @@ describe("This is blog tests", () => {
         <BrowserRouter>
           <BlogMainPage />
         </BrowserRouter>
-      </ApolloProvider>
+      </ApolloProvider>,
     );
 
     const firstPostTitle = await findByText("Co to jest masaż tantryczny?");

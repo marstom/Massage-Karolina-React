@@ -24,6 +24,7 @@ npm t             # testy
 ```
 
 Utwórz `.env.local`
+
 ```text
 REACT_APP_BASE_BACKEND_URL=http://localhost:1337
 REACT_APP_MSW_MOCK=mock
@@ -44,10 +45,12 @@ REACT_APP_MSW_MOCK=mock
   - [@media screen w css styled](https://medium.com/styled-components/how-to-create-responsive-ui-with-styled-components-c6b71a3ce172)
 
 - Testowanie JEST'em
+
   - [Mock na MSW graphql](https://mswjs.io/docs/getting-started/mocks/graphql-api)
 
 - Mocki MSW
   - Aby utworzyć service-worker
+
 ```sh
 npx msw init public/ --save
 ```
