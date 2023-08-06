@@ -18,11 +18,23 @@ import { Massage } from "ui/pages/Massage";
 import { BlogMainPage } from "ui/pages/BlogMainPage";
 import { ContactPage } from "ui/pages/ContactPage";
 import { FullPostPage } from "ui/pages/FullPostPage";
-
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import { TestPageWithFunnyCats } from "ui/pages/test_pages/TestPageWithFunnyCats";
 import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
 import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
+import {client} from "./apolloClient";
+import * as process from "process";
+
+
+
+// Mocks instead real API
+console.log(`Process env ${process.env.REACT_APP_MSW_MOCK}`)
+if (process.env.REACT_APP_MSW_MOCK === "mock") {
+    const { worker } = require('./mocks/browser')
+    worker.start()
+}
+
+
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -68,11 +80,6 @@ const router = createBrowserRouter(
     </>,
   ),
 );
-
-const client = new ApolloClient({
-  uri: `${process.env.REACT_APP_BASE_BACKEND_URL}/graphql`,
-  cache: new InMemoryCache(),
-});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

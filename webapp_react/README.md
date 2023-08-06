@@ -40,6 +40,12 @@ npm t             # testy
 - Testowanie JEST'em
   - [Mock na MSW graphql](https://mswjs.io/docs/getting-started/mocks/graphql-api)
 
+- Mocki MSW
+  - Aby utworzyć service-worker
+```sh
+npx msw init public/ --save
+```
+
 ## Utilities
 
 Strona generator sinusoid do obrazków
