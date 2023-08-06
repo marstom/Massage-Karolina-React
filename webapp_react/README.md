@@ -23,6 +23,12 @@ npm t             # testy
 
 ```
 
+Utwórz `.env.local`
+```text
+REACT_APP_BASE_BACKEND_URL=http://localhost:1337
+REACT_APP_MSW_MOCK=mock
+```
+
 ## Kolorki designy
 
 - [Propozycja koloru](https://colorhunt.co/palette/222831393e4600adb5eeeeee)

@@ -1,4 +1,4 @@
-import {Posts} from "../../ui/types/blogPosts";
+import {Posts, ReadPost} from "../../ui/types/blogPosts";
 
 export const postsResponse: Posts ={
         "posts": {
@@ -8,7 +8,7 @@ export const postsResponse: Posts ={
                     "attributes": {
                         "title": "Tantra",
                         "body": "<h1>Co to jest masaż tantryczny?&nbsp;</h1><p>Masaż tantryczny jest rodzajem pracy z dotykiem, której idea zaczerpnięta została ze starożytnej tradycji hinduistycznej i buddyjskiej. Podczas zabiegu masowaniu podlega całe ciało, zazwyczaj ze szczególnym uwzględnieniem miejsc intymnych.&nbsp;</p><p><img src=\"http://localhost:1337/uploads/lomi_lomi1_a4467600f6.jpg\" alt=\"lomi_lomi1.jpg\" srcset=\"http://localhost:1337/uploads/thumbnail_lomi_lomi1_a4467600f6.jpg 235w,\" sizes=\"100vw\" width=\"235px\"></p><p><img src=\"http://localhost:1337/uploads/image_2c5fe63456.png\" alt=\"image.png\" srcset=\"http://localhost:1337/uploads/thumbnail_image_2c5fe63456.png 237w,\" sizes=\"100vw\" width=\"237px\">Co często podkreślane przez instruktorów masażu tantrycznego, nie jest on tym samym co masaż erotyczny, którego celem jest osiągnięcie orgazmu przez stymulację narządów płciowych. W masażu tantrycznym chodzi natomiast przede wszystkim o rozwój – m.in. w kontekście umiejętności odczuwania zmysłowego i emocjonalnego, koncentrowania się na chwili obecnej, przestawiania się na bycie zamiast działania.</p>",
-                        "shortDescription": "<h1>(api mock)Co to jest masaż tantryczny?&nbsp;</h1><p>Masaż tantryczny jest rodzajem pracy z dotykiem, której idea zaczerpnięta została ze starożytnej tradycji hinduistycznej i buddyjskiej.&nbsp;</p>"
+                        "shortDescription": "<h1>Co to jest masaż tantryczny?&nbsp;</h1><p>Masaż tantryczny jest rodzajem pracy z dotykiem, której idea zaczerpnięta została ze starożytnej tradycji hinduistycznej i buddyjskiej.&nbsp;</p>"
                     }
                 },
                 {
@@ -37,4 +37,8 @@ export const postsResponse: Posts ={
                 }
             ]
         }
+}
+
+export const postResponse = (id: string)  => {
+    return {post: {data:postsResponse.posts.data.find(item => item.id === id)}}
 }
