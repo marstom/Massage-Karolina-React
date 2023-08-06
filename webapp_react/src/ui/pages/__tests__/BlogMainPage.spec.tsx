@@ -23,13 +23,13 @@ describe("This is blog tests", () => {
         <BrowserRouter>
           <BlogMainPage />
         </BrowserRouter>
-      </ApolloProvider>,
+      </ApolloProvider>
     );
 
     const firstPostTitle = await findByText("Co to jest masaż tantryczny?");
     expect(firstPostTitle).toMatchInlineSnapshot(`
       <h1>
-        Co to jest masaż tantryczny? 
+        Co to jest masaż tantryczny?
       </h1>
     `);
     expect(container).toMatchSnapshot();

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`This is blog tests should render all block posts from api mock properly and should match to snapshot 2`] = `
+<div>
+  <div
+    class="sc-hKgJyM jraeqF"
+  >
+    <div
+      class="sc-gsTChe igtfLU"
+    >
+      <h2>
+        Tantra
+      </h2>
+      <div>
+        <h1>
+          Co to jest masaż tantryczny?
+        </h1>
+        <p>
+          Masaż tantryczny jest rodzajem pracy z dotykiem, której idea zaczerpnięta została ze starożytnej tradycji hinduistycznej i buddyjskiej.
+        </p>
+      </div>
+      <a
+        class="sc-bdfCkl sc-dlfmnT gASFcl leRbyo"
+        href="/blog/1"
+      >
+        Czytaj dalej...
+      </a>
+    </div>
+    <div
+      class="sc-gsTChe igtfLU"
+    >
+      <h2>
+        Lomi-lomi
+      </h2>
+      <div>
+        (api mock)Masaż Lomi Lomi wywodzi się z Hawajów. Wieki temu wykonywano go w świątyniach, gdy osoba poddająca się zabiegowi miała podjąć jakąś ważną decyzje życiową. Ten egzotyczny rytuał poprzez dotyk głęboko oczyszcza duchowo i fizycznie, a także przywraca równowagę.
+      </div>
+      <a
+        class="sc-bdfCkl sc-dlfmnT gASFcl leRbyo"
+        href="/blog/2"
+      >
+        Czytaj dalej...
+      </a>
+    </div>
+    <div
+      class="sc-gsTChe igtfLU"
+    >
+      <h2>
+        Level 20
+      </h2>
+      <div>
+        <h1>
+          To jest tytuł
+        </h1>
+        <p>
+          There is a setuid binary in the homedirectory that does the following:** it makes a connection to localhost on the port you specify as a commandline argument.
+        </p>
+      </div>
+      <a
+        class="sc-bdfCkl sc-dlfmnT gASFcl leRbyo"
+        href="/blog/3"
+      >
+        Czytaj dalej...
+      </a>
+    </div>
+    <div
+      class="sc-gsTChe igtfLU"
+    >
+      <h2>
+        Naj
+      </h2>
+      <div>
+        <p>
+          Najnowszy post
+        </p>
+      </div>
+      <a
+        class="sc-bdfCkl sc-dlfmnT gASFcl leRbyo"
+        href="/blog/4"
+      >
+        Czytaj dalej...
+      </a>
+    </div>
+  </div>
+</div>
+`;
