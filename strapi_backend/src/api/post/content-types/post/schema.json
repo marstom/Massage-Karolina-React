@@ -32,6 +32,16 @@
       },
       "required": true,
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "post_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post-comment.post-comment",
+      "mappedBy": "post"
+    },
+    "likePost": {
+      "type": "integer",
+      "min": 0
     }
   }
 }

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_comments",
+  "info": {
+    "singularName": "post-comment",
+    "pluralName": "post-comments",
+    "displayName": "PostComment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "comment": {
+      "type": "richtext",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 500
+    },
+    "post": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "post_comments"
+    },
+    "like": {
+      "type": "integer",
+      "min": 0,
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 1
+    }
+  }
+}
