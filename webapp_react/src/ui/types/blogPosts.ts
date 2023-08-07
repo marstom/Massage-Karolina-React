@@ -1,15 +1,20 @@
+type PostAtriputes = {
+  title: string;
+  body: string;
+  shortDescription: string;
+};
 type Post = {
   id: string;
-  attributes: {
-    title: string;
-    body: string;
-    shortDescription: string;
-    post_comments?: PostComments;
-  };
+  attributes: PostAtriputes;
+};
+
+export type PostDetails = {
+  id: string;
+  attributes: PostAtriputes & { post_comments: PostComments };
 };
 
 export type PostComments = {
-  data?: PostComment[];
+  data: PostComment[];
 };
 
 type PostComment = {
@@ -24,6 +29,10 @@ type PostComment = {
 
 export type ReadPost = {
   post: { data: Post };
+};
+
+export type ReadPostFull = {
+  post: { data: PostDetails };
 };
 
 export type Posts = {

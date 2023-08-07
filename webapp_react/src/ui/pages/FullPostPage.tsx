@@ -2,7 +2,7 @@ import React from "react";
 import { Content } from "ui/atoms/Content";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { ReadPost } from "ui/types/blogPosts";
+import { ReadPostFull } from "ui/types/blogPosts";
 import parse from "html-react-parser";
 import BlogCommentSection from "../molecules/BlogCommentSection";
 
@@ -34,7 +34,7 @@ const postQuery = gql`
 
 export const FullPostPage: React.FC<{}> = () => {
   const { id } = useParams();
-  const { loading, error, data } = useQuery<ReadPost>(postQuery, {
+  const { loading, error, data } = useQuery<ReadPostFull>(postQuery, {
     variables: { id: id },
   });
 

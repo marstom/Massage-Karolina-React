@@ -9,10 +9,10 @@ const CommentsSection = styled.div`
 `;
 
 type Props = {
-  comments?: PostComments;
+  comments: PostComments;
 };
 export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
-  if (!comments || !comments.data || comments.data?.length === 0) {
+  if (!comments || comments.data.length === 0) {
     return (
       <CommentsSection>
         <i>Brak komentarzy</i>
