@@ -1,0 +1,33 @@
+import React from "react";
+import styled from "styled-components";
+import { colors } from "../palette";
+import { PostComments } from "../types/blogPosts";
+
+const PostDiv = styled.div`
+  font-size: 90%;
+  font-style: italic;
+  border: lavender;
+  border-color: #0f5a88;
+  border-style: solid;
+  background: ${colors.secondary};
+  padding: 0.5em;
+`;
+
+type Props = {
+  id: string;
+  comment: string;
+  author: string;
+};
+const BlogComment: React.FC<Props> = ({ id, comment, author }) => {
+  return (
+    <PostDiv key={id}>
+      {comment}
+
+      <p>
+        <i>~{author}</i>
+      </p>
+    </PostDiv>
+  );
+};
+
+export default BlogComment;

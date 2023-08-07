@@ -4,6 +4,7 @@ import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { ReadPost } from "ui/types/blogPosts";
 import parse from "html-react-parser";
+import BlogCommentSection from "../molecules/BlogCommentSection";
 
 const postQuery = gql`
   query Post($id: ID!) {
@@ -14,6 +15,17 @@ const postQuery = gql`
           title
           shortDescription
           body
+          post_comments(sort: "createdAt:desc") {
+            data {
+              id
+              attributes {
+                comment
+                author
+                like
+                createdAt
+              }
+            }
+          }
         }
       }
     }
@@ -28,5 +40,10 @@ export const FullPostPage: React.FC<{}> = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :( mmm</p>;
-  return <Content>{parse(data!.post.data.attributes.body)}</Content>;
+  return (
+    <Content>
+      {parse(data!.post.data.attributes.body)}
+      <BlogCommentSection comments={data!.post.data.attributes.post_comments} />
+    </Content>
+  );
 };

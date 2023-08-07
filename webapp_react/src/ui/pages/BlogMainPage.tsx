@@ -7,7 +7,7 @@ import { Posts } from "ui/types/blogPosts";
 
 const postsQuery = gql`
   query Posts {
-    posts {
+    posts(sort: "createdAt:desc") {
       data {
         id
         attributes {

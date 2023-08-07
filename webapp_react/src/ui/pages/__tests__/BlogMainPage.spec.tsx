@@ -34,4 +34,6 @@ describe("This is blog tests", () => {
     `);
     expect(container).toMatchSnapshot();
   });
+
+  it("Should open blog-post on click 'read more' button, and display full content", () => {});
 });
