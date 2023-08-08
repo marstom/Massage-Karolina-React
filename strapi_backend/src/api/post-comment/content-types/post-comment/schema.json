@@ -27,7 +27,7 @@
     "like": {
       "type": "integer",
       "min": 0,
-      "required": true
+      "required": false
     },
     "author": {
       "type": "string",
