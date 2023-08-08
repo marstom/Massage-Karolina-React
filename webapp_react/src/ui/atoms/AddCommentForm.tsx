@@ -9,27 +9,59 @@ const FormContainer = styled.div`
   //max-width: 80%;
   margin: 5px;
 `;
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  row-gap: 1vh;
+  //max-width: 80%;
+  margin: 5px;
+`;
 
 const TextArea = styled.textarea`
-  flex-grow: 1;
   background: ${colors.primary};
   color: ${colors.textColor};
   min-height: 5em;
 `;
+
+const NameInput = styled.input`
+  background: ${colors.primary};
+  flex-grow: 3;
+  max-width: 50%;
+  color: ${colors.textColor};
+`;
+
 const Button = styled.button`
   padding: 0.2em;
-  flex-grow: 1;
-  max-width: 50%;
-  align-self: flex-end;
+  flex-grow: 2;
+  max-width: 10%;
   color: ${colors.textColor};
   background: ${colors.lightBlue};
 `;
+
+const Label = styled.label`
+  flex-grow: 0;
+`;
+
+const LabelName = styled(Label)`
+  margin-left: auto; // it align whole thing to left
+`;
+
 const AddCommentForm = () => {
+  const addComment = () => {
+    console.log("COmm added");
+  };
   return (
-    <FormContainer>
-      <TextArea />
-      <Button>Dodaj komentarz</Button>
-    </FormContainer>
+    <>
+      <FormContainer>
+        <Label>Komentarz: </Label>
+        <TextArea />
+      </FormContainer>
+      <ButtonContainer>
+        <LabelName>Imię: </LabelName>
+        <NameInput type={"text"}></NameInput>
+        <Button onClick={() => addComment()}>Dodaj komentarz</Button>
+      </ButtonContainer>
+    </>
   );
 };
 

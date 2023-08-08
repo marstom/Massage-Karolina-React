@@ -27,6 +27,7 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
       {comments.data.map((post) => (
         <BlogComment
           id={post.id}
+          key={post.id}
           comment={post.attributes.comment}
           author={post.attributes.author}
         />

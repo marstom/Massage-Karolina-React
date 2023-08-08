@@ -90,7 +90,11 @@ export const Footer = (props: Props) => {
   return (
     <Footer_>
       {sortedData(data!).map((link) => (
-        <FlexElIco href={link.url} $gridCol={link.positionFromRight}>
+        <FlexElIco
+          key={link.name}
+          href={link.url}
+          $gridCol={link.positionFromRight}
+        >
           <Icon src={baseUrl + link.icon.data.attributes.url}></Icon>
         </FlexElIco>
       ))}
