@@ -5,6 +5,7 @@ import BlogComment from "../atoms/BlogComment";
 import AddCommentForm from "../atoms/AddCommentForm";
 import { gql, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import { client } from "apolloClient";
 
 const CommentsSection = styled.div`
   padding-top: 10vh;
@@ -34,7 +35,13 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
     }
   );
 
-  useEffect(() => {}, [data]); // reload all comments after loading changes
+  useEffect(() => {
+    const as = async () => {
+      console.log("Refres queryes ....");
+      await client.refetchQueries({ include: ["Post"] });
+    };
+    as();
+  }, [loading]); // reload all comments after loading changes
 
   if (!id) {
     return <CommentsSection>Error, no post id.</CommentsSection>;
