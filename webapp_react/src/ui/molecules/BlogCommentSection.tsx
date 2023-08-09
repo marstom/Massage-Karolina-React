@@ -46,9 +46,7 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
   if (!id) {
     return <CommentsSection>Error, no post id.</CommentsSection>;
   }
-  if (loading) {
-    console.log("Reloading blog comment section...");
-  }
+
   if (!comments || comments.data.length === 0) {
     return (
       <CommentsSection>

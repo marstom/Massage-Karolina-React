@@ -98,6 +98,7 @@ const AddCommentForm: React.FC<Props> = (props) => {
         ></NameInput>
         <Button onClick={() => addComment()}>Dodaj komentarz</Button>
       </ButtonContainer>
+      {props.addCommenterror && <div>Komentarz jest za krótki</div>}
     </>
   );
 };
