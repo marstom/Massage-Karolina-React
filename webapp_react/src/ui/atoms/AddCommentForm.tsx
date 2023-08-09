@@ -1,8 +1,8 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import styled from "styled-components";
-import { colors, otherColors } from "ui/palette";
-import { gql, useMutation } from "@apollo/client";
-import { useParams } from "react-router-dom";
+import { colors } from "ui/palette";
+import { ApolloError } from "@apollo/client";
+import { CommentFormData } from "../types/commentForm";
 
 const FormContainer = styled.div`
   display: flex;
@@ -48,73 +48,53 @@ const LabelName = styled(Label)`
   margin-left: auto; // it align whole thing to left
 `;
 
-type FormData = {
-  comment: string;
-  author: string;
-};
-
-const initialFormData: FormData = {
+const initialFormData: CommentFormData = {
   comment: "",
   author: "",
 };
 
-// TODO move this query to BlogCommentSection level.
-const query = gql`
-  mutation CreatePostComment($post: ID!, $comment: String!, $author: String!) {
-    createPostComment(
-      data: { post: $post, comment: $comment, author: $author }
-    ) {
-      data {
-        id
-      }
-    }
-  }
-`;
+type Props = {
+  addCommentMutation: (data: any) => void;
+  addCommentloading: boolean;
+  addCommenterror: ApolloError | undefined;
+  postId: string;
+};
 
-const AddCommentForm: React.FC<{}> = () => {
-  const { id } = useParams();
-  const [mutateFunction, { data, loading, error }] = useMutation<
-    { id: string } | FormData
-  >(query);
-  const [formData, setFormData] = useState<FormData>(initialFormData);
-  // useEffect(() => {}, [loading]); // TODO reload all coments
+const AddCommentForm: React.FC<Props> = (props) => {
+  const [formData, setFormData] = useState<CommentFormData>(initialFormData);
   const addComment = async () => {
-    console.log("COmm added");
-    const mutationVariables = { post: id, ...formData };
-    console.log("Mu varialbesl");
+    console.log("Comment added");
+    const mutationVariables = { post: props.postId, ...formData };
+    console.log("mutation variables:");
     console.log(mutationVariables);
-    await mutateFunction({ variables: mutationVariables });
+    await props.addCommentMutation({ variables: mutationVariables });
+    // TODO re-fetch comments
   };
 
-  const handleNameChange = (e: FormEvent<HTMLInputElement>) => {
-    const value = e.currentTarget.value;
-    formData.author = value;
-    console.log(formData);
-  };
-
-  const handleCommentChange = (e: FormEvent<HTMLTextAreaElement>) => {
-    const { name, value } = e.currentTarget;
-    formData.comment = value;
-    console.log(formData);
-  };
-  if (error) {
-    return <>Error!!!</>;
+  if (props.addCommenterror) {
   }
-  if (loading) {
-    return <>Loading</>;
+  if (props.addCommentloading) {
+    console.log("Loading comments...");
   }
   return (
     <>
       <FormContainer>
         <Label>Komentarz: </Label>
-        <TextArea onChange={handleCommentChange} name={"comment"} />
+        <TextArea
+          onChange={(e: FormEvent<HTMLTextAreaElement>) =>
+            setFormData({ ...formData, comment: e.currentTarget.value })
+          }
+          name={"comment"}
+        />
       </FormContainer>
       <ButtonContainer>
         <LabelName>Imię: </LabelName>
         <NameInput
           name={"name"}
           type={"text"}
-          onChange={handleNameChange}
+          onChange={(e: FormEvent<HTMLInputElement>) =>
+            setFormData({ ...formData, author: e.currentTarget.value })
+          }
         ></NameInput>
         <Button onClick={() => addComment()}>Dodaj komentarz</Button>
       </ButtonContainer>

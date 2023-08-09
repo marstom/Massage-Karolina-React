@@ -32,6 +32,10 @@ const postQuery = gql`
   }
 `;
 
+// TODO separate query for post comments
+
+const postCommentQuery = ``;
+
 export const FullPostPage: React.FC<{}> = () => {
   const { id } = useParams();
   const { loading, error, data } = useQuery<ReadPostFull>(postQuery, {

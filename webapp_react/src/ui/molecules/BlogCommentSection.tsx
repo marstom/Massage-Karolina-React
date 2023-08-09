@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PostComments } from "../types/blogPosts";
 import styled from "styled-components";
 import BlogComment from "../atoms/BlogComment";
 import AddCommentForm from "../atoms/AddCommentForm";
+import { gql, useMutation } from "@apollo/client";
+import { useParams } from "react-router-dom";
 
 const CommentsSection = styled.div`
   padding-top: 10vh;
@@ -11,12 +13,45 @@ const CommentsSection = styled.div`
 type Props = {
   comments: PostComments;
 };
+
+const createPostCommentMutation = gql`
+  mutation CreatePostComment($post: ID!, $comment: String!, $author: String!) {
+    createPostComment(
+      data: { post: $post, comment: $comment, author: $author }
+    ) {
+      data {
+        id
+      }
+    }
+  }
+`;
 export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
+  const { id } = useParams();
+  const [mutateFunction, { data, loading, error }] = useMutation(
+    createPostCommentMutation,
+    {
+      variables: { id: "", comment: "", author: "" },
+    }
+  );
+
+  useEffect(() => {}, [data]); // reload all comments after loading changes
+
+  if (!id) {
+    return <CommentsSection>Error, no post id.</CommentsSection>;
+  }
+  if (loading) {
+    console.log("Reloading blog comment section...");
+  }
   if (!comments || comments.data.length === 0) {
     return (
       <CommentsSection>
         <i>Brak komentarzy</i>
-        <AddCommentForm />
+        <AddCommentForm
+          addCommentMutation={mutateFunction}
+          addCommentloading={loading}
+          addCommenterror={error}
+          postId={id}
+        />
       </CommentsSection>
     );
   }
@@ -32,7 +67,12 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
           author={post.attributes.author}
         />
       ))}
-      <AddCommentForm />
+      <AddCommentForm
+        addCommentMutation={mutateFunction}
+        addCommentloading={loading}
+        addCommenterror={error}
+        postId={id}
+      />
     </CommentsSection>
   );
 };
