@@ -74,3 +74,8 @@ https://css-generators.com/wavy-shapes/
 ## WebStorm
 
 - rsc - react template function component
+
+
+### Learning:
+
+- Spędziłem nad tym 2h..... Dlaczego useState może być problematyczne w funkcji asynchronicznej [czytaj tu!](https://javascript.plainenglish.io/why-you-shouldnt-always-use-usestate-658994693018)

@@ -47,31 +47,19 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
     return <CommentsSection>Error, no post id.</CommentsSection>;
   }
 
-  if (!comments || comments.data.length === 0) {
-    return (
-      <CommentsSection>
-        <i>Brak komentarzy</i>
-        <AddCommentForm
-          addCommentMutation={mutateFunction}
-          addCommentloading={loading}
-          addCommenterror={error}
-          postId={id}
-        />
-      </CommentsSection>
-    );
-  }
-
   return (
     <CommentsSection>
       <h4>Komentarze:</h4>
-      {comments.data.map((post) => (
-        <BlogComment
-          id={post.id}
-          key={post.id}
-          comment={post.attributes.comment}
-          author={post.attributes.author}
-        />
-      ))}
+      {!comments || (comments.data.length === 0 && <i>Brak komentarzy</i>)}
+      {comments.data.length > 0 &&
+        comments.data.map((post) => (
+          <BlogComment
+            id={post.id}
+            key={post.id}
+            comment={post.attributes.comment}
+            author={post.attributes.author}
+          />
+        ))}
       <AddCommentForm
         addCommentMutation={mutateFunction}
         addCommentloading={loading}
