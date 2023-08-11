@@ -36,11 +36,11 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
   );
 
   useEffect(() => {
-    const as = async () => {
+    const refresh = async () => {
       console.log("Refres queryes ....");
       await client.refetchQueries({ include: ["Post"] });
     };
-    as();
+    refresh();
   }, [loading]); // reload all comments after loading changes
 
   if (!id) {

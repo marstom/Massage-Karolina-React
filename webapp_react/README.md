@@ -79,3 +79,4 @@ https://css-generators.com/wavy-shapes/
 ### Learning:
 
 - Spędziłem nad tym 2h..... Dlaczego useState może być problematyczne w funkcji asynchronicznej [czytaj tu!](https://javascript.plainenglish.io/why-you-shouldnt-always-use-usestate-658994693018)
+- [refetching data - apollo](https://www.apollographql.com/docs/react/data/refetching/)

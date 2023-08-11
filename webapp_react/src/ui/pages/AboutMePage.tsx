@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import leavesImg from "assets/leaves-small.jpg";
 import { Content } from "ui/atoms/Content";
+import { colors, otherColors } from "../palette";
 
 export const AboutMeContent = styled.div`
   padding-top: 120px;
@@ -52,6 +53,14 @@ const Paragraph = styled.div<{ $centered?: boolean }>`
   text-align: ${(props) => (props.$centered ? "center" : "justify")};
 `;
 
+const BoxSection = styled.div`
+  background: ${colors.primary};
+  color: ${colors.textColor};
+  justify-content: center;
+  text-align: center;
+  padding: 2em;
+`;
+
 type Props = {
   children?: React.ReactNode;
 };
@@ -71,6 +80,7 @@ export const AboutMePage: React.FC<Props> = (props) => {
           <i>Access Bars</i>
         </p>
       </LeavesImage>
+      <BoxSection></BoxSection>
       <Centered>
         <h1>Witaj</h1>
         <Paragraph $centered>Mam na imię Karolina</Paragraph>
