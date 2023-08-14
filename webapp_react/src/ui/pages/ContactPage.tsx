@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
+import UnderlineInputContactForm from "../atoms/UnderlineInputContactForm";
 
 const Label = styled.label`
   align-self: center;
@@ -85,6 +86,7 @@ export const ContactPage = () => {
       <p>Tel: +48 000 000 000</p>
       <h3>Formularz kontaktowy:</h3>
       <ContactForm />
+      <UnderlineInputContactForm />
     </Content>
   );
 };
