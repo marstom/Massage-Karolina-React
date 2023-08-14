@@ -24,7 +24,7 @@ import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
 import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
 import { client } from "./apolloClient";
 import * as process from "process";
-import { router } from "./router";
+import { router } from "router";
 
 // Mocks instead real API
 console.log(`Process env ${process.env.REACT_APP_MSW_MOCK}`);

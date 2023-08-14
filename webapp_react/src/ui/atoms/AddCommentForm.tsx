@@ -4,6 +4,9 @@ import { colors } from "ui/palette";
 import { ApolloError } from "@apollo/client";
 import { CommentFormData } from "../types/commentForm";
 
+const Div = styled.div`
+  color: ${colors.textColor};
+`;
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -113,7 +116,7 @@ const AddCommentForm: React.FC<Props> = (props) => {
     );
   }
   return (
-    <div>
+    <Div>
       <FormContainer>
         <Label>Komentarz: </Label>
         <TextArea
@@ -138,7 +141,7 @@ const AddCommentForm: React.FC<Props> = (props) => {
         {validationErrors.commentError && <div>Komentarz jest za krótki.</div>}
         {validationErrors.authorError && <div>Pole nie może być puste!</div>}
       </div>
-    </div>
+    </Div>
   );
 };
 
