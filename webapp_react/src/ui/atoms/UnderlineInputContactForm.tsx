@@ -1,52 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { colors, otherColors } from "ui/palette";
 /*
  * Experimental
  * */
 
 const FormDiv = styled.div`
   @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-  * {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 10px;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
-  }
   .container {
+    color: ${colors.textColor};
     max-width: 800px;
-    background: #fff;
+    background: ${colors.primary};
     width: 800px;
     padding: 25px 40px 10px 40px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
-  .container .text {
-    text-align: center;
-    font-size: 41px;
-    font-weight: 600;
-    font-family: "Poppins", sans-serif;
-    background: -webkit-linear-gradient(
-      right,
-      #56d8e4,
-      #9f01ea,
-      #56d8e4,
-      #9f01ea
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .container form {
-    padding: 30px 0 0 0;
-  }
+
   .container form .form-row {
     display: flex;
     margin: 32px 0;
@@ -62,6 +31,8 @@ const FormDiv = styled.div`
   }
   .input-data input,
   .textarea textarea {
+    background: ${colors.primary};
+    color: ${colors.textColor}
     display: block;
     width: 100%;
     height: 100%;
@@ -91,7 +62,7 @@ const FormDiv = styled.div`
   .textarea label {
     width: 100%;
     bottom: 40px;
-    background: #fff;
+    background: ${colors.primary};
   }
   .input-data .underline {
     position: absolute;
@@ -114,6 +85,7 @@ const FormDiv = styled.div`
   .textarea textarea:focus ~ .underline:before,
   .textarea textarea:valid ~ .underline:before {
     transform: scale(1);
+    color: ${colors.textColor};
   }
   .submit-btn .input-data {
     overflow: hidden;
@@ -127,10 +99,10 @@ const FormDiv = styled.div`
     left: -100%;
     background: -webkit-linear-gradient(
       right,
-      #56d8e4,
-      #9f01ea,
-      #56d8e4,
-      #9f01ea
+      ${colors.lightBlue},
+      ${colors.darkerGreen},
+      ${colors.lightBlue},
+      ${colors.darkerGreen}
     );
     transition: all 0.4s;
   }
@@ -140,7 +112,7 @@ const FormDiv = styled.div`
   .submit-btn .input-data input {
     background: none;
     border: none;
-    color: #fff;
+    color: ${colors.textColor};
     font-size: 17px;
     font-weight: 500;
     text-transform: uppercase;
@@ -148,6 +120,10 @@ const FormDiv = styled.div`
     cursor: pointer;
     position: relative;
     z-index: 2;
+  }
+  input, textarea{
+
+    color: ${colors.textColor};
   }
   @media (max-width: 700px) {
     .container .text {
@@ -178,24 +154,19 @@ const UnderlineInputContactForm = () => {
             <div className="input-data">
               <input type="text" required />
               <div className="underline"></div>
-              <label htmlFor="">First Name</label>
+              <label htmlFor="">Imię</label>
             </div>
             <div className="input-data">
               <input type="text" required />
               <div className="underline"></div>
-              <label htmlFor="">Last Name</label>
+              <label htmlFor="">Nazwisko</label>
             </div>
           </div>
           <div className="form-row">
             <div className="input-data">
               <input type="text" required />
               <div className="underline"></div>
-              <label htmlFor="">Email Address</label>
-            </div>
-            <div className="input-data">
-              <input type="text" required />
-              <div className="underline"></div>
-              <label htmlFor="">Website Name</label>
+              <label htmlFor="">Adres email</label>
             </div>
           </div>
           <div className="form-row">
@@ -203,7 +174,7 @@ const UnderlineInputContactForm = () => {
               <textarea rows={8} cols={80} required />
               <br />
               <div className="underline"></div>
-              <label>Write your message</label>
+              <label>Wiadomość</label>
               <br />
             </div>
           </div>

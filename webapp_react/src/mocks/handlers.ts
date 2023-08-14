@@ -1,6 +1,7 @@
 // src/mocks/handlers.js
 import { graphql } from "msw";
-import { postResponse, postsResponse } from "./responses/postsResponse";
+import { postsResponse } from "./responses/postsResponse";
+import { postResponse } from "./responses/postResponse";
 
 export const handlers = [
   graphql.query("Posts", (req, res, ctx) => {
@@ -8,6 +9,6 @@ export const handlers = [
   }),
   graphql.query("Post", (req, res, ctx) => {
     const { id } = req.variables;
-    return res(ctx.data(postResponse(id)));
+    return res(ctx.data(postResponse));
   }),
 ];

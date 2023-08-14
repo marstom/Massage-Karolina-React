@@ -24,6 +24,7 @@ import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
 import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
 import { client } from "./apolloClient";
 import * as process from "process";
+import { router } from "./router";
 
 // Mocks instead real API
 console.log(`Process env ${process.env.REACT_APP_MSW_MOCK}`);
@@ -57,28 +58,8 @@ const GlobalStyle = createGlobalStyle`
 
 `;
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-      <Route path="/" element={<App />}>
-        <Route path="" element={<AboutMePage />} />
-        <Route path="masaze" element={<Massage />} />
-        <Route path="blog" element={<BlogMainPage />} />
-        <Route path="blog/:id" element={<FullPostPage />} />
-        <Route path="kontakt" element={<ContactPage />} />
-        <Route
-          path="test-page-with-funny-cats/:id"
-          element={<TestPageWithFunnyCats />}
-        />
-        <Route path="test-page-styled" element={<TestPageStyled />} />
-        <Route path="test-responsivness" element={<TestResponsivness />} />
-      </Route>
-    </>,
-  ),
-);
-
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
+  document.getElementById("root") as HTMLElement
 );
 
 root.render(
@@ -87,7 +68,7 @@ root.render(
     <ApolloProvider client={client}>
       <RouterProvider router={router} />
     </ApolloProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

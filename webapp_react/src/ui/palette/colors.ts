@@ -1,4 +1,4 @@
-export const colors = {
+const primaryColors = {
   primary: "#222831",
   secondary: "#393E46",
   lightBlue: "#00ADB5",
@@ -13,3 +13,5 @@ export const otherColors = {
   secondaryOpaque: "rgba(0,0,0,0.5)",
   black: "rgb(26,26,26)",
 };
+
+export const colors = { ...primaryColors, ...otherColors };

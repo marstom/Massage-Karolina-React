@@ -86,7 +86,7 @@ export const ContactPage = () => {
       <p>Tel: +48 000 000 000</p>
       <h3>Formularz kontaktowy:</h3>
       <ContactForm />
-      <UnderlineInputContactForm />
+      {/*<UnderlineInputContactForm />*/}
     </Content>
   );
 };

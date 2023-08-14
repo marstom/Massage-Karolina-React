@@ -42,7 +42,7 @@ export const postsResponse: Posts = {
   },
 };
 
-export const postResponse = (id: string) => {
+export const __postResponse = (id: string) => {
   return {
     post: { data: postsResponse.posts.data.find((item) => item.id === id) },
   };
