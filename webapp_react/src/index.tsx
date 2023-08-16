@@ -41,6 +41,9 @@ const GlobalStyle = createGlobalStyle`
     display: block;
     height: 100%;
   }
+  span{
+    //align-self: center;
+  }
 
 `;
 

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { ReactNode, useState } from "react";
 import styled from "styled-components";
 import { colors, otherColors } from "ui/palette";
-import { NonStyledLink } from "../atoms/NonStyledLink";
+import { Item, NonStyledLink } from "../atoms/NonStyledLink";
+import { DropdownMenu } from "../atoms/DropdownMenu";
 // import font from "assets/fonts/script-bc.woff"
 
 const MenuBar = styled.div`
@@ -16,14 +17,8 @@ const MenuBar = styled.div`
   position: fixed;
   width: 100%;
   z-index: 100;
-`;
-
-const Item = styled(NonStyledLink)`
-  font-size: 150%;
-  //background: #15342b;
-  margin: 10px;
-  padding-block: 15px;
-  padding: 0px 30px 0px 30px;
+  //max-height: 3vh;
+  //overflow: visible;
 `;
 
 const Logo = styled.div`
@@ -38,7 +33,8 @@ export const Menu = () => {
     <MenuBar>
       <Logo>Karolina Banaszewska</Logo>
       <Item to={"/"}>O mnie</Item>
-      <Item to={"/masaze"}>Masaże</Item>
+      {/*<Item to={"/masaze"}>Masaże</Item>*/}
+      <DropdownMenu>Masaże</DropdownMenu>
       <Item to={"/blog"}>Blog</Item>
       <Item to={"/kontakt"}>Kontakt</Item>
       <Item to={"/test-page-with-funny-cats/1"}>FC</Item>
