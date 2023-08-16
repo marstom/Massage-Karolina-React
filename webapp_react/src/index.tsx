@@ -1,27 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { colors } from "ui/palette";
 
 import { createGlobalStyle } from "styled-components";
 import "index.css";
 
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
-import { AboutMePage } from "ui/pages/AboutMePage";
-import { Massage } from "ui/pages/Massage";
-import { BlogMainPage } from "ui/pages/BlogMainPage";
-import { ContactPage } from "ui/pages/ContactPage";
-import { FullPostPage } from "ui/pages/FullPostPage";
+import { RouterProvider } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
-import { TestPageWithFunnyCats } from "ui/pages/test_pages/TestPageWithFunnyCats";
-import { TestPageStyled } from "ui/pages/test_pages/TestPageStyled";
-import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
 import { client } from "./apolloClient";
 import * as process from "process";
 import { router } from "router";

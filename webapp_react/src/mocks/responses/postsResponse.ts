@@ -1,4 +1,4 @@
-import { Posts, ReadPost } from "../../ui/types/blogPosts";
+import { Posts } from "../../ui/types/blogPosts";
 
 export const postsResponse: Posts = {
   posts: {

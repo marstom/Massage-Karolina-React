@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { colors, otherColors } from "ui/palette";
+import { otherColors } from "ui/palette";
 import parse from "html-react-parser";
-import { Link } from "react-router-dom";
 import { NonStyledLink } from "./NonStyledLink";
 
 const BorderedBlogpostDiv = styled.div`

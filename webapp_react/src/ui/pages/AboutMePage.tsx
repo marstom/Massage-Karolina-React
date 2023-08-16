@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import leavesImg from "assets/leaves-small.jpg";
 import { Content } from "ui/atoms/Content";
-import { colors, otherColors } from "../palette";
+import { colors } from "../palette";
 
 export const AboutMeContent = styled.div`
   padding-top: 120px;

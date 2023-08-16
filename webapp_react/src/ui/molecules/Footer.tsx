@@ -2,13 +2,8 @@
 import React from "react";
 import { colors, otherColors } from "ui/palette";
 
-import styled, { css } from "styled-components";
-
-import fb from "assets/icons/facebook_bw.png";
-import youtube from "assets/icons/youtube_bw.png";
-import insta from "assets/icons/insta_bw.png";
+import styled from "styled-components";
 import { gql, useQuery } from "@apollo/client";
-import { Posts } from "../types/blogPosts";
 import FooterLinkApiResponse from "../types/footerLink";
 
 const Footer_ = styled.div`

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
-import UnderlineInputContactForm from "../atoms/UnderlineInputContactForm";
 
 const Label = styled.label`
   align-self: center;

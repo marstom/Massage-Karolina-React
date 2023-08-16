@@ -1,8 +1,6 @@
 import React from "react";
-import { Content } from "ui/atoms/Content";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 
 export const ContentSpecial = styled.div`
@@ -64,7 +62,7 @@ export const TestPageWithFunnyCats: React.FC<{}> = () => {
       FullPostPage
       <div
         dangerouslySetInnerHTML={createMarkup(
-          data!.asdf.data.attributes.toolbarVersion,
+          data!.asdf.data.attributes.toolbarVersion
         )}
       />
       {/* <ReactMarkdown>

@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { BlogMinifiedEntry } from "../atoms/BlogMinifiedEntry";
 import { Content } from "ui/atoms/Content";
 import { gql, useQuery } from "@apollo/client";

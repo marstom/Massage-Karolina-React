@@ -1,19 +1,13 @@
 import React from "react";
 import { server } from "../../../mocks/server";
 import { BlogMainPage } from "../BlogMainPage";
-import { fireEvent, render, waitFor, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "../../../apolloClient";
-import { createMemoryHistory } from "history";
 import { router } from "../../../router";
 
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  MemoryRouter,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import { MemoryRouter, RouterProvider } from "react-router-dom";
+
 beforeAll(() => server.listen());
 
 // Reset any request handlers that we may add during the tests,

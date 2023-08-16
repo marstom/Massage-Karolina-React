@@ -1,10 +1,9 @@
 import React from "react";
 import { server } from "../../../mocks/server";
-import { BlogMainPage } from "../BlogMainPage";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "../../../apolloClient";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import { FullPostPage } from "../FullPostPage";
 

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "../palette";
-import { PostComments } from "../types/blogPosts";
 
 const PostDiv = styled.div`
   font-size: 90%;
