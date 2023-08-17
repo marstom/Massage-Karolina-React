@@ -11,7 +11,7 @@ const MenuBar = styled.div`
   align-content: center;
   justify-content: center;
   background: ${otherColors.secondaryOpaque};
-  color: ${colors.textColor};
+  color: ${colors.menuTextColor};
   padding-top: 55px;
   padding-bottom: 10px;
   position: fixed;
@@ -34,7 +34,8 @@ export const Menu = () => {
       <Logo>Karolina Banaszewska</Logo>
       <Item to={"/"}>O mnie</Item>
       {/*<Item to={"/masaze"}>Masaże</Item>*/}
-      <DropdownMenu>Masaże</DropdownMenu>
+      <DropdownMenu>Sesje dotyku</DropdownMenu>
+      <DropdownMenu>Sesje uwalniające</DropdownMenu>
       <Item to={"/blog"}>Blog</Item>
       <Item to={"/kontakt"}>Kontakt</Item>
       <Item to={"/test-page-with-funny-cats/1"}>FC</Item>

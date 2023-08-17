@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { colors } from "../palette";
 
 export const NonStyledLink = styled(Link)`
-  color: ${colors.textColor};
+  color: ${colors.menuTextColor};
   &:hover {
     color: ${colors.lightBlue};
   }
@@ -21,6 +21,7 @@ export const Item = styled(NonStyledLink)`
   font-size: 150%;
   //background: #15342b;
   margin: 10px;
+  color: ${colors.menuTextColor}
   padding-block: 15px;
   padding: 0px 30px 0px 30px;
 `;

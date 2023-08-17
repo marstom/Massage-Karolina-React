@@ -1,10 +1,11 @@
 import Color from "color";
 
 const primaryColors = {
-  primary: "#222831",
+  primary: "#F9ECE6",
   secondary: "#393E46",
   lightBlue: "#00ADB5",
-  textColor: "#EEEEEE",
+  textColor: "#0e0e0e",
+  menuTextColor: "#ffffff",
 };
 
 export const otherColors = {

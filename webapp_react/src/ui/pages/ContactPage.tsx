@@ -62,6 +62,8 @@ const ContactForm = () => {
         <Input type={"text"} />
         <Label>Email: </Label>
         <Input type={"text"} />
+        <Label>Telefon: </Label>
+        <Input type={"text"} />
       </Flex>
       <FlexCol>
         <Label>Wiadomość: </Label>

@@ -14,6 +14,7 @@ const Window = styled.div`
   display: flex;
   align-self: flex-start;
   align-items: center;
+  color: ${colors.menuTextColor};
 
   background: ${colors.black};
   box-shadow: 0px 10px 30px 0px ${colors.primaryOpaque};
@@ -24,6 +25,7 @@ export const DropdownEl = styled(NonStyledDropdownEl)`
   margin: 10px;
   padding-block: 15px;
   padding: 0px 30px 0px 30px;
+  color: ${colors.menuTextColor};
 `;
 const List = styled.ul`
   li {
@@ -59,15 +61,12 @@ export const DropdownMenu: React.FC<Props> = ({ children }) => {
     );
   };
 
-  const hiddenDropdown = () => {
-    return <DropdownEl>{children}</DropdownEl>;
-  };
   return (
     <Span
       onMouseEnter={() => setDropdownVisible(true)}
       onMouseLeave={() => setDropdownVisible(false)}
     >
-      {hiddenDropdown()}
+      {<DropdownEl>{children}</DropdownEl>}
       {isDropdownVisible && visibleDropdown()}
     </Span>
   );
