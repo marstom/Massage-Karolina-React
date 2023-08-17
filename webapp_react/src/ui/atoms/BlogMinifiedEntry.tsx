@@ -1,33 +1,35 @@
 import React from "react";
 import styled from "styled-components";
-import { otherColors } from "ui/palette";
+import { colors, otherColors } from "ui/palette";
 import parse from "html-react-parser";
 import { NonStyledLink } from "./NonStyledLink";
+import style from "./BlogMinifiedEntry.module.css";
 
 const BorderedBlogpostDiv = styled.div`
   border-color: ${otherColors.darkerGreen};
   border-style: solid;
-  border-radius: 20px;
-  border-width: 6px;
-  //otherrs
-  //display: inline-block;
-  //position: relative;
-  //z-index: 1;
-  //width: 300px;
-  height: 300px;
-  margin: 20px;
-  padding: 25px;
-  width: 25%;
 
-  //kontener
-  justify-content: space-between;
-  flex-direction: column;
-  display: flex;
+  border-radius: 15px;
+  border-width: 2px;
+
+  height: 500px;
+  margin: 20px;
+  padding: 15px;
+  width: 350px;
+  align-content: center;
+  text-align: justify;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
 `;
 
 const BlogpostButton = styled(NonStyledLink)`
-  display: flex;
-  width: 10em;
+  color: ${colors.darkerGreen};
+  grid-row-start: 6;
+  align-self: end;
+  margin-bottom: 12px;
+  margin-left: 12px;
 `;
 
 type Props = {
@@ -37,17 +39,16 @@ type Props = {
 };
 
 export const BlogMinifiedEntry = (props: Props) => {
-  const parser = new DOMParser();
-
   return (
     <BorderedBlogpostDiv>
-      <h2>{props.title}</h2>
-      {/*<img*/}
-      {/*  src={*/}
-      {/*    "https://miro.medium.com/v2/resize:fit:2000/1*08t_fNgSH1PSa3DFKNxcQA.jpeg"*/}
-      {/*  }*/}
-      {/*/>*/}
-      <div>{parse(props.content)}</div>
+      <h2 className={style.postTitle}>{props.title}</h2>
+      <img
+        className={style.miniImage}
+        src={
+          "https://miro.medium.com/v2/resize:fit:2000/1*08t_fNgSH1PSa3DFKNxcQA.jpeg"
+        }
+      />
+      <div className={style.shortContent}>{parse(props.content)}</div>
       <BlogpostButton to={`/blog/${props.id}`}>Czytaj dalej...</BlogpostButton>
     </BorderedBlogpostDiv>
   );

@@ -84,17 +84,16 @@ const AddCommentForm: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    // must use it here, because useState is async
-    validateFormErrors();
-  }, [validationErrors]);
-
-  const validateFormErrors = () => {
-    const newErrors = {
-      authorError: formData.author.length <= 2,
-      commentError: formData.comment.length <= 2,
+    const validateFormErrors = () => {
+      const newErrors = {
+        authorError: formData.author.length <= 2,
+        commentError: formData.comment.length <= 2,
+      };
+      setValidationErrors(newErrors);
     };
-    setValidationErrors(newErrors);
-  };
+    validateFormErrors();
+  }, [formData]);
+
   const addComment = async () => {
     if (errDivRef.current) {
       errDivRef.current.removeAttribute("hidden");

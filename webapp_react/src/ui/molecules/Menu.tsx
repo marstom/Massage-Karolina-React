@@ -1,7 +1,7 @@
-import React, { ReactNode, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors, otherColors } from "ui/palette";
-import { Item, NonStyledLink } from "../atoms/NonStyledLink";
+import { Item } from "../atoms/NonStyledLink";
 import { DropdownMenu } from "../atoms/DropdownMenu";
 // import font from "assets/fonts/script-bc.woff"
 

@@ -1,0 +1,22 @@
+
+.postTitle {
+    padding-bottom: 0;
+    border-bottom: 0;
+    margin-bottom: 15px;
+
+    grid-row-start: 1;
+}
+
+.miniImage{
+    max-height: 300px;
+    max-width: 300px;
+    justify-self: center;
+    margin-bottom: 5px;
+
+    grid-row-start: 2;
+}
+
+.shortContent{
+    grid-row-start: 3;
+    /*grid-row-end: span col4-start;*/
+}

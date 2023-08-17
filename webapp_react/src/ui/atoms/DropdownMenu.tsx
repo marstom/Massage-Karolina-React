@@ -2,7 +2,7 @@ import React, { ReactNode, useState } from "react";
 import { NonStyledDropdownEl } from "./NonStyledLink";
 import styled from "styled-components";
 import { colors } from "../palette";
-import { Item, NonStyledLink } from "../atoms/NonStyledLink";
+import { NonStyledLink } from "../atoms/NonStyledLink";
 
 type Props = {
   children: ReactNode;
