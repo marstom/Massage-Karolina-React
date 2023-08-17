@@ -11,6 +11,7 @@ const PostDiv = styled.div`
   //background: blue;
   background: ${colors.secondary};
   padding: 0.5em;
+  margin-bottom: 15px;
 `;
 
 type Props = {
