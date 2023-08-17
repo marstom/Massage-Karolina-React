@@ -39,6 +39,25 @@ type Props = {
 };
 
 export const BlogMinifiedEntry = (props: Props) => {
+  const shortenString = (str: string, maxLength: number) => {
+    if (str.length <= maxLength) {
+      return str;
+    }
+
+    const words = str.split(" ");
+    let shortened = "";
+
+    for (const word of words) {
+      if ((shortened + word).length <= maxLength - 3) {
+        // 3 for "..."
+        shortened += (shortened ? " " : "") + word;
+      } else {
+        break;
+      }
+    }
+
+    return shortened + "...";
+  };
   return (
     <BorderedBlogpostDiv>
       <h2 className={style.postTitle}>{props.title}</h2>
@@ -48,7 +67,9 @@ export const BlogMinifiedEntry = (props: Props) => {
           "https://miro.medium.com/v2/resize:fit:2000/1*08t_fNgSH1PSa3DFKNxcQA.jpeg"
         }
       />
-      <div className={style.shortContent}>{parse(props.content)}</div>
+      <div className={style.shortContent}>
+        {parse(shortenString(props.content, 220))}
+      </div>
       <BlogpostButton to={`/blog/${props.id}`}>Czytaj dalej...</BlogpostButton>
     </BorderedBlogpostDiv>
   );

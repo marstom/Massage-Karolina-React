@@ -2,7 +2,7 @@ import Color from "color";
 
 const primaryColors = {
   primary: "#F9ECE6",
-  secondary: "#393E46",
+  secondary: "#e0bebd",
   lightBlue: "#00ADB5",
   textColor: "#0e0e0e",
   menuTextColor: "#ffffff",
@@ -10,6 +10,7 @@ const primaryColors = {
 
 export const otherColors = {
   green: "#36A18B",
+  rose: "#AA6F6D",
   darkerGreen: "#2F8A83",
   darkerGreenBg: "#dadada",
   primaryOpaque: "rgba(34,40,49,0.5)",
@@ -22,7 +23,7 @@ primaryColors.primary = Color(primaryColors.primary)
   .saturate(0.0)
   .rotate(0)
   .hex();
-primaryColors.secondary = Color(primaryColors.secondary).lighten(1.0).string();
+primaryColors.secondary = Color(primaryColors.secondary).lighten(0.0).string();
 primaryColors.lightBlue = Color(primaryColors.lightBlue).lighten(0.0).string();
 primaryColors.textColor = Color(primaryColors.textColor).darken(0.0).string();
 

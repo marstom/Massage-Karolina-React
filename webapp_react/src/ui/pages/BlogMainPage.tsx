@@ -38,7 +38,7 @@ export const BlogMainPage: React.FC<{}> = () => {
           key={post.id}
           id={post.id}
           title={post.attributes.title}
-          content={post.attributes.shortDescription}
+          content={post.attributes.body}
         />
       ))}
     </BlogFlexContent>

@@ -4,3 +4,17 @@
     local("ScriptBc"),
     url(./assets/fonts/script-bc.woff) format("woff");
 }
+@font-face {
+  font-family: "Handwritten";
+  src:
+          local("Handwritten"),
+          url(./assets/fonts/HandwrittenRound.woff2) format("woff");
+}
+
+@font-face {
+  font-family: "RalewayLight";
+  src:
+          local("RalewayLight"),
+          url(./assets/fonts/Raleway-Light.woff2) format("woff");
+}
+

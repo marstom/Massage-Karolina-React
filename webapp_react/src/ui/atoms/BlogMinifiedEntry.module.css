@@ -1,9 +1,11 @@
 
 .postTitle {
+    justify-self: center;
     padding-bottom: 0;
     border-bottom: 0;
     margin-bottom: 15px;
 
+    font-family: "RalewayLight";
     grid-row-start: 1;
 }
 

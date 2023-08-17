@@ -5,9 +5,10 @@ import { colors } from "../palette";
 const PostDiv = styled.div`
   font-size: 90%;
   font-style: italic;
-  border: lavender;
-  border-color: #0f5a88;
+  //border: blue;
+  border-color: ${colors.rose};
   border-style: solid;
+  //background: blue;
   background: ${colors.secondary};
   padding: 0.5em;
 `;
