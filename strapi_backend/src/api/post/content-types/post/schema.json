@@ -16,15 +16,6 @@
       "type": "string",
       "required": true
     },
-    "shortDescription": {
-      "type": "customField",
-      "options": {
-        "preset": "toolbar",
-        "maxLengthCharacters": 500
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "required": true
-    },
     "body": {
       "type": "customField",
       "options": {
@@ -42,6 +33,13 @@
     "likePost": {
       "type": "integer",
       "min": 0
+    },
+    "miniImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

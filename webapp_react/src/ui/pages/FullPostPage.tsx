@@ -14,7 +14,6 @@ const postQuery = gql`
         id
         attributes {
           title
-          shortDescription
           body
           post_comments(sort: "createdAt:desc") {
             data {

@@ -36,6 +36,7 @@ type Props = {
   title: string;
   content: string;
   id: string;
+  imageUrl: string;
 };
 
 export const BlogMinifiedEntry = (props: Props) => {
@@ -61,12 +62,7 @@ export const BlogMinifiedEntry = (props: Props) => {
   return (
     <BorderedBlogpostDiv>
       <h2 className={style.postTitle}>{props.title}</h2>
-      <img
-        className={style.miniImage}
-        src={
-          "https://miro.medium.com/v2/resize:fit:2000/1*08t_fNgSH1PSa3DFKNxcQA.jpeg"
-        }
-      />
+      <img className={style.miniImage} src={props.imageUrl} />
       <div className={style.shortContent}>
         {parse(shortenString(props.content, 220))}
       </div>

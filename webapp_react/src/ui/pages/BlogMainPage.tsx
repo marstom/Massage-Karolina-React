@@ -4,6 +4,7 @@ import { Content } from "ui/atoms/Content";
 import { gql, useQuery } from "@apollo/client";
 import { Posts } from "ui/types/blogPosts";
 import styled from "styled-components";
+import { BASE_URL } from "../../consts";
 
 const postsQuery = gql`
   query Posts {
@@ -13,7 +14,14 @@ const postsQuery = gql`
         attributes {
           title
           body
-          shortDescription
+          miniImage {
+            data {
+              attributes {
+                url
+                caption
+              }
+            }
+          }
         }
       }
     }
@@ -35,6 +43,7 @@ export const BlogMainPage: React.FC<{}> = () => {
     <BlogFlexContent>
       {data!.posts.data.map((post) => (
         <BlogMinifiedEntry
+          imageUrl={BASE_URL + post.attributes?.miniImage.data?.attributes.url}
           key={post.id}
           id={post.id}
           title={post.attributes.title}

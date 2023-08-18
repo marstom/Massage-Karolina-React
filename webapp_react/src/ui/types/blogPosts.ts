@@ -1,16 +1,23 @@
-type PostAtriputes = {
+type MiniPostAttributes = {
   title: string;
   body: string;
   shortDescription: string;
+  miniImage: { data?: { attributes: { url: string } } };
 };
-type Post = {
+type FullPostAttributes = {
+  title: string;
+  body: string;
+  shortDescription: string;
+  post_comments: PostComments;
+};
+type MiniPost = {
   id: string;
-  attributes: PostAtriputes;
+  attributes: MiniPostAttributes;
 };
 
 export type PostDetails = {
   id: string;
-  attributes: PostAtriputes & { post_comments: PostComments };
+  attributes: FullPostAttributes;
 };
 
 export type PostComments = {
@@ -28,7 +35,7 @@ type PostComment = {
 };
 
 export type ReadPost = {
-  post: { data: Post };
+  post: { data: MiniPost };
 };
 
 export type ReadPostFull = {
@@ -37,6 +44,6 @@ export type ReadPostFull = {
 
 export type Posts = {
   posts: {
-    data: Post[];
+    data: MiniPost[];
   };
 };
