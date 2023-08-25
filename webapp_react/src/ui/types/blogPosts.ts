@@ -2,7 +2,7 @@ type MiniPostAttributes = {
   title: string;
   body: string;
   shortDescription: string;
-  miniImage: { data?: { attributes: { url: string } } };
+  miniImage?: { data?: { attributes: { url: string } } };
 };
 type FullPostAttributes = {
   title: string;

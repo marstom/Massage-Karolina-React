@@ -34,14 +34,15 @@ const postQuery = gql`
 
 export const ContentPost = styled(Content)`
   margin: 50px;
-  //background: blue !important;
   .image-style-align-left {
     color: rgb(0, 0, 255);
-    text-align: left;
+    float: left;
+    margin-right: 15px;
   }
-  .image-style-block-align-right {
-    text-align: right;
-    opacity: 10%;
+
+  .image-style-align-right {
+    float: right;
+    margin-left: 15px;
   }
 `;
 

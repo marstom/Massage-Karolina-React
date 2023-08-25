@@ -12,7 +12,7 @@ export const otherColors = {
   green: "#36A18B",
   rose: "#AA6F6D",
   darkerGreen: "#2F8A83",
-  darkerGreenBg: "#dadada",
+  lightBg: "#dadada",
   primaryOpaque: "rgba(34,40,49,0.5)",
   secondaryOpaque: "rgba(0,0,0,0.5)",
   black: "rgb(26,26,26)",
@@ -29,9 +29,7 @@ primaryColors.textColor = Color(primaryColors.textColor).darken(0.0).string();
 
 otherColors.green = Color(otherColors.green).lighten(0.0).string();
 otherColors.darkerGreen = Color(otherColors.darkerGreen).lighten(0.0).string();
-otherColors.darkerGreenBg = Color(otherColors.darkerGreenBg)
-  .lighten(0.0)
-  .string();
+otherColors.lightBg = Color(otherColors.lightBg).lighten(0.0).string();
 otherColors.primaryOpaque = Color(otherColors.primaryOpaque)
   .lighten(0.0)
   .string();

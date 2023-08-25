@@ -9,7 +9,7 @@ export const AboutMeContent = styled.div`
 `;
 
 export const LeavesImage = styled.div`
-  padding-top: 110px;
+  padding-top: 150px;
   background-image: linear-gradient(
       to bottom,
       rgba(68, 65, 65, 0.3),
@@ -19,25 +19,18 @@ export const LeavesImage = styled.div`
   height: 100vh;
   background-size: cover;
   position: relative;
-  margin-top: -120px;
+  margin-top: -130px;
   width: 100%;
   top: 0px;
   bottom: 0px;
   z-index: -1;
 
-  // fala
-  //--mask: radial-gradient(
-  //      239.24px at 50% calc(100% - 328.6px),
-  //      #000 99%,
-  //      #0000 101%
-  //    )
-  //    calc(50% - 248px) 0/496px 100%,
-  //  radial-gradient(239.24px at 50% calc(100% + 204.6px), #0000 99%, #000 101%)
-  //    50% calc(100% - 124px) / 496px 100% repeat-x;
-  //-webkit-mask: var(--mask);
-  //mask: var(--mask);
+  color: ${colors.lightBg};
 
   // fonty
+  //font-family: "Handwritten";
+  font-family: "RalewayLight";
+  //font-family: "Handwritten";
   font-size: 120%;
   justify-content: center;
   text-align: center;
@@ -46,11 +39,15 @@ export const LeavesImage = styled.div`
 const Centered = styled.div`
   text-align: center;
 `;
-const Paragraph = styled.div<{ $centered?: boolean }>`
+const Paragraph = styled.div<{
+  $centered?: boolean;
+  $font?: "Handwritten" | "RalewayLight";
+}>`
   font-size: 120%;
   margin: 3vh 5vh 5vh 5vh;
   line-height: 130%;
   text-align: ${(props) => (props.$centered ? "center" : "justify")};
+  font-family: ${(props) => (props.$font ? props.$font : "")};
 `;
 
 const BoxSection = styled.div`
@@ -59,6 +56,10 @@ const BoxSection = styled.div`
   justify-content: center;
   text-align: center;
   padding: 2em;
+`;
+
+const HandwrittenHeader = styled.h1`
+  font-family: "Handwritten";
 `;
 
 type Props = {
@@ -82,8 +83,10 @@ export const AboutMePage: React.FC<Props> = (props) => {
       </LeavesImage>
       <BoxSection></BoxSection>
       <Centered>
-        <h1>Witaj</h1>
-        <Paragraph $centered>Mam na imię Karolina</Paragraph>
+        <HandwrittenHeader>Witaj</HandwrittenHeader>
+        <Paragraph $centered $font={"RalewayLight"}>
+          Mam na imię Karolina
+        </Paragraph>
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

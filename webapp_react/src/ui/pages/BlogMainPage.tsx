@@ -43,7 +43,7 @@ export const BlogMainPage: React.FC<{}> = () => {
     <BlogFlexContent>
       {data!.posts.data.map((post) => (
         <BlogMinifiedEntry
-          imageUrl={BASE_URL + post.attributes?.miniImage.data?.attributes.url}
+          imageUrl={BASE_URL + post.attributes?.miniImage?.data?.attributes.url}
           key={post.id}
           id={post.id}
           title={post.attributes.title}
