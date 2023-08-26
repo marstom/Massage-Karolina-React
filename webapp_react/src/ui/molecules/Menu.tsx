@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { colors, otherColors } from "ui/palette";
 import { Item } from "../atoms/NonStyledLink";
 import { DropdownMenu } from "../atoms/DropdownMenu";
-// import font from "assets/fonts/script-bc.woff"
 
 const MenuBar = styled.div`
   display: flex;
@@ -17,8 +16,6 @@ const MenuBar = styled.div`
   position: fixed;
   width: 100%;
   z-index: 100;
-  //max-height: 3vh;
-  //overflow: visible;
 `;
 
 const Logo = styled.div`
@@ -34,8 +31,22 @@ export const Menu = () => {
       <Logo>Karolina Banaszewska</Logo>
       <Item to={"/"}>O mnie</Item>
       {/*<Item to={"/masaze"}>Masaże</Item>*/}
-      <DropdownMenu>Sesje dotyku</DropdownMenu>
-      <DropdownMenu>Sesje uwalniające</DropdownMenu>
+      <DropdownMenu
+        links={[
+          { to: "/masaze", text: "Lomi-lomi" },
+          { to: "/tantra", text: "Tantra" },
+        ]}
+      >
+        Sesje dotyku
+      </DropdownMenu>
+      <DropdownMenu
+        links={[
+          { to: "/ustawienia", text: "Ustawienia systemowe" },
+          { to: "/access-bars", text: "Access Bars" },
+        ]}
+      >
+        Sesje uwalniające
+      </DropdownMenu>
       <Item to={"/blog"}>Blog</Item>
       <Item to={"/kontakt"}>Kontakt</Item>
       <Item to={"/test-page-with-funny-cats/1"}>FC</Item>

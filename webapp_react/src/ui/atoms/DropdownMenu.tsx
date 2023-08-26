@@ -5,10 +5,6 @@ import { colors } from "../palette";
 import { NonStyledLink } from "../atoms/NonStyledLink";
 import "./DropdownMenu.css";
 
-type Props = {
-  children: ReactNode;
-};
-
 const Window = styled.div`
   width: 15%;
   margin-left: 25px;
@@ -21,6 +17,9 @@ const Window = styled.div`
 
   background: ${colors.black};
   border-top: 1mm ${colors.green};
+  border-bottom: 0mm;
+  border-left: 0mm;
+  border-right: 0mm;
   border-style: solid;
   box-shadow: 0px 10px 30px 0px ${colors.primaryOpaque};
   border-radius: 2%;
@@ -34,7 +33,6 @@ export const DropdownEl = styled(NonStyledDropdownEl)`
   padding-block: 15px;
   padding: 0px 30px 50px 30px;
   color: ${colors.menuTextColor};
-  //padding-bottom: 50px;
 
   // arrow down
   &::after {
@@ -60,24 +58,26 @@ const Span = styled.span`
   align-self: center;
 `;
 
-export const DropdownMenu: React.FC<Props> = ({ children }) => {
+type LinkType = {
+  to: string;
+  text: string;
+};
+type Props = {
+  children: ReactNode;
+  links: LinkType[];
+};
+
+export const DropdownMenu: React.FC<Props> = ({ children, links }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const visibleDropdown = () => {
     return (
       <Window>
         <List>
-          <li>
-            <NonStyledLink to={"/masaze"}>Lomi lomi</NonStyledLink>
-          </li>
-          <li>
-            <NonStyledLink to={"/masaze"}>Tantra</NonStyledLink>
-          </li>
-          <li>
-            <NonStyledLink to={"/masaze"}>Relaksacyjny</NonStyledLink>
-          </li>
-          <li>
-            <NonStyledLink to={"/masaze"}>Access Bars</NonStyledLink>
-          </li>
+          {links.map((link) => (
+            <li key={link.to}>
+              <NonStyledLink to={`${link.to}`}>{link.text}</NonStyledLink>
+            </li>
+          ))}
         </List>
       </Window>
     );
