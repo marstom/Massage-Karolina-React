@@ -33,23 +33,22 @@ export const Menu = () => {
       {/*<Item to={"/masaze"}>Masaże</Item>*/}
       <DropdownMenu
         links={[
-          { to: "/masaze", text: "Lomi-lomi" },
-          { to: "/tantra", text: "Tantra" },
+          { to: "/sesje/masaze/lomi-lomi", text: "Lomi-lomi" },
+          { to: "/sesje/masaze/tantra", text: "Tantra" },
         ]}
       >
         Sesje dotyku
       </DropdownMenu>
       <DropdownMenu
         links={[
-          { to: "/ustawienia", text: "Ustawienia systemowe" },
-          { to: "/access-bars", text: "Access Bars" },
+          { to: "/sesje/uwalnianie/ustawienia", text: "Ustawienia systemowe" },
+          { to: "/sesje/uwalnianie/access-bars", text: "Access Bars" },
         ]}
       >
         Sesje uwalniające
       </DropdownMenu>
       <Item to={"/blog"}>Blog</Item>
       <Item to={"/kontakt"}>Kontakt</Item>
-      <Item to={"/test-page-with-funny-cats/1"}>FC</Item>
     </MenuBar>
   );
 };

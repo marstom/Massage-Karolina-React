@@ -13,6 +13,10 @@ import { TestPageWithFunnyCats } from "./ui/pages/test_pages/TestPageWithFunnyCa
 import { TestPageStyled } from "./ui/pages/test_pages/TestPageStyled";
 import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
 import React from "react";
+import { Tantra } from "./ui/pages/sessions/touch/Tantra";
+import { LomiLomi } from "./ui/pages/sessions/touch/LomiLomi";
+import { Ustawienia } from "./ui/pages/sessions/release/Ustawienia";
+import { AccessBars } from "./ui/pages/sessions/release/AccessBars";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +24,10 @@ export const router = createBrowserRouter(
       <Route path="/" element={<App />}>
         <Route path="" element={<AboutMePage />} />
         <Route path="masaze" element={<Massage />} />
+        <Route path="sesje/masaze/tantra" element={<Tantra />} />
+        <Route path="sesje/masaze/lomi-lomi" element={<LomiLomi />} />
+        <Route path="sesje/uwalnianie/ustawienia" element={<Ustawienia />} />
+        <Route path="sesje/uwalnianie/access-bars" element={<AccessBars />} />
         <Route path="blog" element={<BlogMainPage />} />
         <Route path="blog/:id" element={<FullPostPage />} />
         <Route path="kontakt" element={<ContactPage />} />

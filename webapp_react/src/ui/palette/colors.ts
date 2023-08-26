@@ -5,6 +5,7 @@ const primaryColors = {
   secondary: "#e0bebd",
   lightBlue: "#00ADB5",
   textColor: "#0e0e0e",
+  textColorLight: "#F9ECE6",
   menuTextColor: "#ffffff",
 };
 

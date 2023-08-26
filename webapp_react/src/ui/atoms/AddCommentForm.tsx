@@ -7,25 +7,33 @@ import { CommentFormData } from "../types/commentForm";
 const Div = styled.div`
   color: ${colors.textColor};
 `;
-const FormContainer = styled.div`
+const CommentContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1vh;
   //max-width: 80%;
   margin: 5px;
 `;
-const ButtonContainer = styled.div`
+const NameContainer = styled.div`
   display: flex;
   flex-direction: row;
   row-gap: 1vh;
-  //max-width: 80%;
-  margin: 5px;
+  margin: 15px 0px 0px 0px;
 `;
 
 const TextArea = styled.textarea`
   background: ${colors.primary};
   color: ${colors.textColor};
   min-height: 5em;
+  resize: none;
+  border-style: solid;
+  border-color: ${colors.lightBlue};
+
+  // non outline version
+  //border: none;
+  //border-bottom: 2px solid ${colors.lightBlue}; /* You can adjust the color */
+  //outline: none; /* Remove the default outline */
+  //padding: 1px; /* Adjust padding as needed */
 `;
 
 const NameInput = styled.input`
@@ -33,18 +41,26 @@ const NameInput = styled.input`
   flex-grow: 3;
   max-width: 50%;
   color: ${colors.textColor};
+
+  border-style: solid;
+  border-color: ${colors.lightBlue};
 `;
 
 const Button = styled.button`
   padding: 0.2em;
   flex-grow: 2;
   max-width: 10%;
-  color: ${colors.textColor};
+  color: ${colors.textColorLight};
   background: ${colors.lightBlue};
+  margin-left: 10px;
+
+  //border-style: solid;
+  // border-color: ${colors.darkerGreen};
 `;
 
 const Label = styled.label`
   flex-grow: 0;
+  margin-right: 10px;
 `;
 
 const LabelName = styled(Label)`
@@ -109,14 +125,14 @@ const AddCommentForm: React.FC<Props> = (props) => {
 
   if (sent) {
     return (
-      <FormContainer>
+      <CommentContainer>
         <i>Dziękuję za opinie!</i>
-      </FormContainer>
+      </CommentContainer>
     );
   }
   return (
     <Div>
-      <FormContainer>
+      <CommentContainer>
         <Label>Komentarz: </Label>
         <TextArea
           onChange={(e: FormEvent<HTMLTextAreaElement>) =>
@@ -124,8 +140,8 @@ const AddCommentForm: React.FC<Props> = (props) => {
           }
           name={"comment"}
         />
-      </FormContainer>
-      <ButtonContainer>
+      </CommentContainer>
+      <NameContainer>
         <LabelName>Imię: </LabelName>
         <NameInput
           name={"name"}
@@ -135,7 +151,7 @@ const AddCommentForm: React.FC<Props> = (props) => {
           }
         ></NameInput>
         <Button onClick={() => addComment()}>Dodaj komentarz</Button>
-      </ButtonContainer>
+      </NameContainer>
       <div hidden ref={errDivRef}>
         {validationErrors.commentError && <div>Komentarz jest za krótki.</div>}
         {validationErrors.authorError && <div>Pole nie może być puste!</div>}

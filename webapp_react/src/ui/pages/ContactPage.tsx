@@ -76,9 +76,14 @@ const ContactForm = () => {
   );
 };
 
+const ContentWithMargin = styled(Content)`
+  margin-left: 3%;
+  margin-right: 3%;
+`;
+
 export const ContactPage = () => {
   return (
-    <Content>
+    <ContentWithMargin>
       <h2>Karolina Banaszewska</h2>
       <p>Skontaktuj się ze mną:</p>
       <p>Adres:</p>
@@ -88,6 +93,6 @@ export const ContactPage = () => {
       <h3>Formularz kontaktowy:</h3>
       <ContactForm />
       {/*<UnderlineInputContactForm />*/}
-    </Content>
+    </ContentWithMargin>
   );
 };
