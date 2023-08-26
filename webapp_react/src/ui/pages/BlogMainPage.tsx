@@ -32,6 +32,9 @@ const BlogFlexContent = styled(Content)`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: auto;
+  justify-content: center;
+  width: 100%;
 `;
 
 export const BlogMainPage: React.FC<{}> = () => {

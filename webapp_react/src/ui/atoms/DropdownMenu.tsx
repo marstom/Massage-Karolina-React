@@ -26,6 +26,19 @@ export const DropdownEl = styled(NonStyledDropdownEl)`
   padding-block: 15px;
   padding: 0px 30px 0px 30px;
   color: ${colors.menuTextColor};
+
+  // arrow down
+  &::after {
+    margin-left: 10px;
+    margin-bottom: 3px;
+    content: "";
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
 `;
 const List = styled.ul`
   li {
