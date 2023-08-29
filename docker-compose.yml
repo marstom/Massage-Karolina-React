@@ -1,35 +1,12 @@
 version: "3.9"
 services:
-  #Strapi Service (APP Service)
-  strapi_app:
-    build:
-      context: ./strapi_backend
-    # depends_on:
-      # - strapi_db
-    ports:
-      - "1337:1337"
-    environment:
-      - PORT=1337
-      - WEBSITE=http://localhost:1337
-    #   - DATABASE_CLIENT=postgres
-      # - DATABASE_HOST=strapi_db
-      # - DATABASE_PORT=5432
-      # - DATABASE_NAME=strapi_db
-      # - DATABASE_USERNAME=strapi_db
-      # - DATABASE_PASSWORD=strapi_db
-      # - DATABASE_SSL=false
-    volumes:
-    - ./_data/strapi/uploads:/opt/app/public/uploads
-    - ./_data/strapi/public:/opt/app/public
-    - ./_data/strapi/sqlite_db:/opt/app/.tmp
-    # networks:
-    #   - app-network
-
   webapp:
-    image: nginx
+    image: steebchen/nginx-spa:stable
     ports:
       - "10002:80"
     volumes:
       - type: bind
         source: ./webapp_react/build
-        target: /usr/share/nginx/html
+        target: /app
+        #target: /usr/share/nginx/html
+

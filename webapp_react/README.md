@@ -24,6 +24,13 @@ npm t             # testy
 ```
 
 Utwórz `.env.local`
+Utwórz `.env.production`
+```text
+REACT_APP_BASE_BACKEND_URL=https://api.test.karolina.mt-software.info
+REACT_APP_MSW_MOCK=realApi
+```
+
+
 
 ```text
 REACT_APP_BASE_BACKEND_URL=http://localhost:1337
@@ -80,3 +87,7 @@ https://css-generators.com/wavy-shapes/
 
 - Spędziłem nad tym 2h..... Dlaczego useState może być problematyczne w funkcji asynchronicznej [czytaj tu!](https://javascript.plainenglish.io/why-you-shouldnt-always-use-usestate-658994693018)
 - [refetching data - apollo](https://www.apollographql.com/docs/react/data/refetching/)
+
+
+## React:
+- [Kolejność .env plików](https://create-react-app.dev/docs/adding-custom-environment-variables/)

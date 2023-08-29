@@ -1,3 +1,4 @@
+import React from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -12,7 +13,6 @@ import { ContactPage } from "./ui/pages/ContactPage";
 import { TestPageWithFunnyCats } from "./ui/pages/test_pages/TestPageWithFunnyCats";
 import { TestPageStyled } from "./ui/pages/test_pages/TestPageStyled";
 import TestResponsivness from "./ui/pages/test_pages/TestResponsivness";
-import React from "react";
 import { Tantra } from "./ui/pages/sessions/touch/Tantra";
 import { LomiLomi } from "./ui/pages/sessions/touch/LomiLomi";
 import { Ustawienia } from "./ui/pages/sessions/release/Ustawienia";
