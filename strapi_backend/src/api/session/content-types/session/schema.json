@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sessions",
+  "info": {
+    "singularName": "session",
+    "pluralName": "sessions",
+    "displayName": "Session",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "dotyk",
+        "uwalnianie"
+      ],
+      "required": true
+    },
+    "menuEntryText": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 3
+    },
+    "body": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "urlName": {
+      "type": "string",
+      "maxLength": 15
+    }
+  }
+}

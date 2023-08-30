@@ -23,7 +23,7 @@ export const LeavesImage = styled.div`
   width: 100%;
   top: 0px;
   bottom: 0px;
-  z-index: -1;
+  z-index: 1;
 
   color: ${colors.lightBg};
 
@@ -79,6 +79,17 @@ export const AboutMePage: React.FC<Props> = (props) => {
         </p>
         <p>
           <i>Access Bars</i>
+        </p>
+        <p>
+          <iframe
+            width="760"
+            height="428"
+            src="https://www.youtube.com/embed/xm0zT8Sim3c?si=2wuxdCRRhf0RidcK"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
         </p>
       </LeavesImage>
       <BoxSection></BoxSection>

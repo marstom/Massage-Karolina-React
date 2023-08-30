@@ -4,7 +4,7 @@
   "info": {
     "singularName": "post-comment",
     "pluralName": "post-comments",
-    "displayName": "PostComment",
+    "displayName": "Blog post comment",
     "description": ""
   },
   "options": {
