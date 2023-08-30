@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_form_messages",
+  "info": {
+    "singularName": "contact-form-message",
+    "pluralName": "contact-form-messages",
+    "displayName": "Contact form message",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "maxLength": 50
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "message": {
+      "type": "richtext",
+      "required": true,
+      "maxLength": 500
+    }
+  }
+}
