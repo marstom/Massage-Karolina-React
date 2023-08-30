@@ -1,7 +1,10 @@
-import React from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
+import { f } from "msw/lib/glossary-de6278a9";
+import { Simulate } from "react-dom/test-utils";
+import load = Simulate.load;
 
 const Label = styled.label`
   align-self: center;
@@ -54,23 +57,113 @@ const TextArea = styled.textarea`
   padding: 0.5em;
 `;
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+type FormErrors = FormData;
+const initialFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+};
+
+const initialFormErrors = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+};
+
 const ContactForm = () => {
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formErrors, setFormErrors] = useState<FormErrors>(initialFormErrors);
+
+  // useEffect(() => {
+  //   // console.log(formData);
+  //   // validateForm();
+  // }, [, formData]);
+  //
+  const changeFormData = (
+    e: FormEvent<HTMLTextAreaElement | HTMLInputElement>,
+    name: string
+  ) => {
+    type FData = Record<string, string>;
+    const dat: FData = { [name]: e.currentTarget.value };
+    setFormData({ ...formData, ...dat });
+  };
+
+  const validator = (key: keyof typeof formData, msg: string) => {
+    console.log(msg, key, formData[key].length);
+    if (formData[key].length === 0) {
+      setFormErrors({ ...formErrors, [key]: msg });
+    } else {
+      setFormErrors({ ...formErrors, [key]: "" });
+    }
+  };
+  const validateForm = () => {
+    validator("name", "Name is too short");
+    validator("email", "Email is too short");
+    validator("message", "Message is too short");
+    validator("phone", "Phone is too short");
+
+    console.log("---form-errrors---");
+    console.log(formErrors);
+  };
+
+  const sendMesage = () => {
+    console.log("Message sent!");
+  };
+  const clickButtonHandler = () => {
+    console.log("hendler");
+    validateForm();
+    // let k: keyof typeof formErrors;
+    // for (k in formErrors) {
+    //   console.log("err", formErrors[k]);
+    // }
+    sendMesage();
+  };
+
   return (
     <Form>
       <Flex>
         <Label>Imię: </Label>
-        <Input type={"text"} />
+        <Input
+          onChange={(e: FormEvent<HTMLInputElement>) =>
+            changeFormData(e, "name")
+          }
+          type={"text"}
+        />
+        {formErrors.name && <span>Name error: {formErrors.name}</span>}
         <Label>Email: </Label>
-        <Input type={"text"} />
+        <Input
+          onChange={(e: FormEvent<HTMLInputElement>) =>
+            changeFormData(e, "email")
+          }
+          type={"text"}
+        />
         <Label>Telefon: </Label>
-        <Input type={"text"} />
+        <Input
+          onChange={(e: FormEvent<HTMLInputElement>) =>
+            changeFormData(e, "phone")
+          }
+          type={"text"}
+        />
       </Flex>
       <FlexCol>
         <Label>Wiadomość: </Label>
-        <TextArea />
+        <TextArea
+          onChange={(e: FormEvent<HTMLTextAreaElement>) =>
+            changeFormData(e, "message")
+          }
+        />
       </FlexCol>
       <FlexCol>
-        <Button>Wyślij</Button>
+        <Button onClick={clickButtonHandler}>Wyślij</Button>
       </FlexCol>
     </Form>
   );
