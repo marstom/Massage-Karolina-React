@@ -1,8 +1,7 @@
-import React, { FormEvent, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
-import { Simulate } from "react-dom/test-utils";
 import { useForm } from "react-hook-form";
 
 const Label = styled.label`
@@ -62,6 +61,10 @@ const Err = styled.span`
   position: absolute;
   margin-left: 30px;
   z-index: 1;
+  user-select: none; // prevent from selection
+`;
+const ErrMessage = styled(Err)`
+  margin-top: -30px;
 `;
 
 type FormData = {
@@ -69,13 +72,6 @@ type FormData = {
   email: string;
   phone: string;
   message: string;
-};
-
-const initialFormData = {
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
 };
 
 const ContactForm = () => {
@@ -120,7 +116,8 @@ const ContactForm = () => {
       </Flex>
       <FlexCol>
         <Label>
-          Wiadomość:{errors.message && <Err>{errors.message.message}</Err>}
+          Wiadomość:
+          {errors.message && <ErrMessage>{errors.message.message}</ErrMessage>}
         </Label>
         <TextArea
           {...register("message", {
