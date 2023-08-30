@@ -1,15 +1,14 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
-import { f } from "msw/lib/glossary-de6278a9";
 import { Simulate } from "react-dom/test-utils";
-import load = Simulate.load;
+import { useForm } from "react-hook-form";
 
 const Label = styled.label`
   align-self: center;
 `;
-const Form = styled.div``;
+const Form = styled.form``;
 const Flex = styled.div`
   display: flex;
   flex-direction: row;
@@ -57,6 +56,14 @@ const TextArea = styled.textarea`
   padding: 0.5em;
 `;
 
+const Err = styled.span`
+  font-size: 80%;
+  color: crimson;
+  position: absolute;
+  margin-left: 30px;
+  z-index: 1;
+`;
+
 type FormData = {
   name: string;
   email: string;
@@ -64,7 +71,6 @@ type FormData = {
   message: string;
 };
 
-type FormErrors = FormData;
 const initialFormData = {
   name: "",
   email: "",
@@ -72,100 +78,61 @@ const initialFormData = {
   message: "",
 };
 
-const initialFormErrors = {
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-};
-
 const ContactForm = () => {
-  const [formData, setFormData] = useState<FormData>(initialFormData);
-  const [formErrors, setFormErrors] = useState<FormErrors>(initialFormErrors);
-
-  // useEffect(() => {
-  //   // console.log(formData);
-  //   // validateForm();
-  // }, [, formData]);
-  //
-  const changeFormData = (
-    e: FormEvent<HTMLTextAreaElement | HTMLInputElement>,
-    name: string
-  ) => {
-    type FData = Record<string, string>;
-    const dat: FData = { [name]: e.currentTarget.value };
-    setFormData({ ...formData, ...dat });
-  };
-
-  const validator = (key: keyof typeof formData, msg: string) => {
-    console.log(msg, key, formData[key].length);
-    if (formData[key].length === 0) {
-      setFormErrors({ ...formErrors, [key]: msg });
-    } else {
-      setFormErrors({ ...formErrors, [key]: "" });
-    }
-  };
-  const validateForm = () => {
-    validator("name", "Name is too short");
-    validator("email", "Email is too short");
-    validator("message", "Message is too short");
-    validator("phone", "Phone is too short");
-
-    console.log("---form-errrors---");
-    console.log(formErrors);
-  };
-
-  const sendMesage = () => {
-    console.log("Message sent!");
-  };
-  const clickButtonHandler = () => {
-    console.log("hendler");
-    validateForm();
-    // let k: keyof typeof formErrors;
-    // for (k in formErrors) {
-    //   console.log("err", formErrors[k]);
-    // }
-    sendMesage();
-  };
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<FormData>();
 
   return (
-    <Form>
+    <form
+      onSubmit={handleSubmit((values) => {
+        console.log(values);
+      })}
+    >
       <Flex>
-        <Label>Imię: </Label>
+        <Label>Imię:{errors.name && <Err>{errors.name.message}</Err>} </Label>
         <Input
-          onChange={(e: FormEvent<HTMLInputElement>) =>
-            changeFormData(e, "name")
-          }
           type={"text"}
+          {...register("name", {
+            required: "To pole jest wymagane.",
+          })}
         />
-        {formErrors.name && <span>Name error: {formErrors.name}</span>}
-        <Label>Email: </Label>
+
+        <Label>Email:{errors.email && <Err>{errors.email.message}</Err>}</Label>
         <Input
-          onChange={(e: FormEvent<HTMLInputElement>) =>
-            changeFormData(e, "email")
-          }
           type={"text"}
+          {...register("email", {
+            required: "To pole jest wymagane.",
+          })}
         />
-        <Label>Telefon: </Label>
+
+        <Label>
+          Telefon:{errors.phone && <Err>{errors.phone.message}</Err>}{" "}
+        </Label>
         <Input
-          onChange={(e: FormEvent<HTMLInputElement>) =>
-            changeFormData(e, "phone")
-          }
           type={"text"}
+          {...register("phone", {
+            required: "To pole jest wymagane.",
+          })}
         />
       </Flex>
       <FlexCol>
-        <Label>Wiadomość: </Label>
+        <Label>
+          Wiadomość:{errors.message && <Err>{errors.message.message}</Err>}
+        </Label>
         <TextArea
-          onChange={(e: FormEvent<HTMLTextAreaElement>) =>
-            changeFormData(e, "message")
-          }
+          {...register("message", {
+            required: "To pole jest wymagane.",
+          })}
         />
       </FlexCol>
+
       <FlexCol>
-        <Button onClick={clickButtonHandler}>Wyślij</Button>
+        <Button type={"submit"}>Wyślij</Button>
       </FlexCol>
-    </Form>
+    </form>
   );
 };
 
