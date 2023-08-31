@@ -2,7 +2,13 @@ import React, { InputHTMLAttributes } from "react";
 import Tooltip from "../atoms/Tooltip";
 import styled from "styled-components";
 import { colors } from "../palette";
-import { FieldValues, RegisterOptions, UseFormRegister } from "react-hook-form";
+import {
+  Field,
+  FieldValues,
+  RegisterOptions,
+  UseFormRegister,
+  UseFormRegisterReturn,
+} from "react-hook-form";
 
 const Label = styled.label`
   align-self: center;
@@ -45,32 +51,31 @@ const TextArea = styled.textarea`
   width: 100%;
 `;
 type Props = {
-  label: string;
+  inputLabel: string;
   variant: "text" | "textarea";
-  flexGrow: number;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegisterReturn;
+  flexGrow?: number;
   fullsize?: boolean;
   error?: string;
 };
-
-const InputTooltip: React.FC<Props> = ({
-  label,
+function InputTooltip({
+  inputLabel,
   variant,
   flexGrow,
   register,
   fullsize,
   error,
   ...props
-}) => {
+}: Props) {
   return (
     <Wrapper $fullsize={fullsize} $flexgrow={flexGrow ? 1 : flexGrow}>
-      <Label>{label}</Label>
+      <Label>{inputLabel}</Label>
       <Tooltip direction={"top"} content={error}>
         {variant === "text" && <Input type={"text"} {...register}></Input>}
         {variant === "textarea" && <TextArea {...register}></TextArea>}
       </Tooltip>
     </Wrapper>
   );
-};
+}
 
 export default InputTooltip;

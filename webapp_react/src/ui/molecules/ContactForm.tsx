@@ -56,7 +56,7 @@ const ContactForm = () => {
       <Flex>
         <Wrapper>
           <InputTooltip
-            label={"Imię: "}
+            inputLabel={"Imię: "}
             variant={"text"}
             flexGrow={1}
             register={register("name", {
@@ -67,7 +67,7 @@ const ContactForm = () => {
         </Wrapper>
         <Wrapper>
           <InputTooltip
-            label={"Email: "}
+            inputLabel={"Email: "}
             variant={"text"}
             flexGrow={1}
             error={errors.email && errors.email.message}
@@ -79,7 +79,7 @@ const ContactForm = () => {
 
         <Wrapper>
           <InputTooltip
-            label={"Telefon: "}
+            inputLabel={"Telefon: "}
             variant={"text"}
             flexGrow={1}
             register={register("phone", {
@@ -90,7 +90,7 @@ const ContactForm = () => {
         </Wrapper>
         <Wrapper $width={"100%"}>
           <InputTooltip
-            label={"Wiadomość: "}
+            inputLabel={"Wiadomość: "}
             variant={"textarea"}
             fullsize={true}
             register={register("message", {
