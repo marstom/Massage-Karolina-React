@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputTooltip from "./InputTooltip";
-import React from "react";
 import styled from "styled-components";
 import { colors } from "../palette";
 
@@ -41,15 +41,26 @@ type FormData = {
   message: string;
 };
 const ContactForm = () => {
+  const [sent, setSent] = useState<boolean>(false);
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<FormData>();
 
+  if (sent) {
+    return (
+      <>
+        <h2>Twoja wiadomość została wysłana!</h2>
+        <h2>Odezwę się do Ciebie niedługo.</h2>
+      </>
+    );
+  }
+
   return (
     <form
       onSubmit={handleSubmit((values) => {
+        setSent(true);
         console.log(values);
       })}
     >

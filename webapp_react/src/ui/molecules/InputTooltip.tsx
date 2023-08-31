@@ -1,14 +1,8 @@
-import React, { InputHTMLAttributes } from "react";
+import React from "react";
 import Tooltip from "../atoms/Tooltip";
 import styled from "styled-components";
 import { colors } from "../palette";
-import {
-  Field,
-  FieldValues,
-  RegisterOptions,
-  UseFormRegister,
-  UseFormRegisterReturn,
-} from "react-hook-form";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 const Label = styled.label`
   align-self: center;
