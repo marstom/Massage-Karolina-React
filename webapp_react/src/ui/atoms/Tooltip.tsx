@@ -3,7 +3,7 @@ import "./tooltip.css";
 
 type Props = {
   children: ReactNode;
-  content?: string;
+  content: string;
   direction: "top" | "left" | "right" | "bottom";
   shift?: string; // in px
 };
