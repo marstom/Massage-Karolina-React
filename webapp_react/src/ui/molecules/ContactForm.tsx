@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import InputTooltip from "./InputTooltip";
 import styled from "styled-components";
 import { colors } from "../palette";
+import { ContactPageQueryVariablesType } from "../types/contactPage";
 
 const Wrapper = styled.span<{ $width?: string }>`
   margin-right: 20px;
@@ -36,9 +37,11 @@ type FormData = {
   phone: string;
   message: string;
 };
-const ContactForm: React.FC<{ createMessageMutation: (data: any) => any }> = ({
-  createMessageMutation,
-}) => {
+const ContactForm: React.FC<{
+  createMessageMutation: (data: {
+    variables: ContactPageQueryVariablesType;
+  }) => Promise<void>;
+}> = ({ createMessageMutation }) => {
   const [sent, setSent] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
   const {
@@ -64,10 +67,9 @@ const ContactForm: React.FC<{ createMessageMutation: (data: any) => any }> = ({
     <form
       onSubmit={handleSubmit(async (values) => {
         setLoading(true);
-        const resp = await createMessageMutation({ variables: values });
+        await createMessageMutation({ variables: values });
         setLoading(false);
         setSent(true);
-        console.log(values);
       })}
     >
       <Flex>

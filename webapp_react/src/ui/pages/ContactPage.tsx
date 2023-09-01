@@ -4,6 +4,10 @@ import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
 import ContactForm from "../molecules/ContactForm";
 import { gql, useMutation } from "@apollo/client";
+import {
+  contactInitialVariables,
+  ContactPageQueryVariablesType,
+} from "../types/contactPage";
 
 const Label = styled.label`
   align-self: center;
@@ -64,17 +68,12 @@ const mutation = gql`
 `;
 
 export const ContactPage = () => {
-  const [createMessageMutation, { data, loading, error }] = useMutation(
-    mutation,
-    {
-      variables: {
-        name: "",
-        email: "tomm@tomm.com",
-        phone: "33333",
-        message: "message",
-      },
-    }
-  );
+  const [createMessageMutation, { data, loading, error }] = useMutation<
+    { id: string },
+    ContactPageQueryVariablesType
+  >(mutation, {
+    variables: contactInitialVariables,
+  });
   return (
     <ContentWithMargin>
       <h2>Karolina Banaszewska</h2>
