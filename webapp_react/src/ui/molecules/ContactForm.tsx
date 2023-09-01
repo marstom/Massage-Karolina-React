@@ -17,10 +17,6 @@ const Flex = styled.div`
   margin: 1em;
   flex-wrap: wrap;
 `;
-const FlexCol = styled(Flex)`
-  flex-direction: row;
-  justify-content: flex-end;
-`;
 
 const Button = styled.button`
   background: ${colors.lightBlue};
@@ -40,13 +36,20 @@ type FormData = {
   phone: string;
   message: string;
 };
-const ContactForm = () => {
+const ContactForm: React.FC<{ createMessageMutation: (data: any) => any }> = ({
+  createMessageMutation,
+}) => {
   const [sent, setSent] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<FormData>();
+
+  if (loading) {
+    return <>loading...</>;
+  }
 
   if (sent) {
     return (
@@ -59,7 +62,10 @@ const ContactForm = () => {
 
   return (
     <form
-      onSubmit={handleSubmit((values) => {
+      onSubmit={handleSubmit(async (values) => {
+        setLoading(true);
+        const resp = await createMessageMutation({ variables: values });
+        setLoading(false);
         setSent(true);
         console.log(values);
       })}

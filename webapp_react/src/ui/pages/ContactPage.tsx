@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
 import ContactForm from "../molecules/ContactForm";
+import { gql, useMutation } from "@apollo/client";
 
 const Label = styled.label`
   align-self: center;
@@ -45,7 +46,35 @@ const ContentWithMargin = styled(Content)`
   margin-right: 3%;
 `;
 
+const mutation = gql`
+  mutation CreateContactFormMessage(
+    $name: String!
+    $email: String!
+    $phone: String!
+    $message: String!
+  ) {
+    createContactFormMessage(
+      data: { name: $name, email: $email, phone: $phone, message: $message }
+    ) {
+      data {
+        id
+      }
+    }
+  }
+`;
+
 export const ContactPage = () => {
+  const [createMessageMutation, { data, loading, error }] = useMutation(
+    mutation,
+    {
+      variables: {
+        name: "",
+        email: "tomm@tomm.com",
+        phone: "33333",
+        message: "message",
+      },
+    }
+  );
   return (
     <ContentWithMargin>
       <h2>Karolina Banaszewska</h2>
@@ -55,7 +84,7 @@ export const ContactPage = () => {
       <p>Email: kb@gmail.com</p>
       <p>Tel: +48 000 000 000</p>
       <h3>Formularz kontaktowy:</h3>
-      <ContactForm />
+      <ContactForm createMessageMutation={createMessageMutation} />
       {/*<UnderlineInputContactForm />*/}
     </ContentWithMargin>
   );
