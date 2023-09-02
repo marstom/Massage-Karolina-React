@@ -76,7 +76,7 @@ const ContactForm: React.FC<{
             variant={"text"}
             flexGrow={1}
             register={register("name", {
-              required: "To pole jest wymagane.",
+              required: "Podaj imię.",
             })}
             error={errors.name && errors.name.message}
           />
@@ -88,7 +88,12 @@ const ContactForm: React.FC<{
             flexGrow={1}
             error={errors.email && errors.email.message}
             register={register("email", {
-              required: "To pole jest wymagane.",
+              required: "Podaj email.",
+              pattern: {
+                value:
+                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: "Email jest nieprawidłowy.",
+              },
             })}
           />
         </Wrapper>
@@ -99,7 +104,7 @@ const ContactForm: React.FC<{
             variant={"text"}
             flexGrow={1}
             register={register("phone", {
-              required: "To pole jest wymagane.",
+              required: "Podaj telefon kontaktowy.",
             })}
             error={errors.phone && errors.phone.message}
           />
@@ -110,7 +115,7 @@ const ContactForm: React.FC<{
             variant={"textarea"}
             fullsize={true}
             register={register("message", {
-              required: "To pole jest wymagane.",
+              required: "Treść wiadomości nie może być pusta.",
             })}
             error={errors.message && errors.message.message}
           />

@@ -29,12 +29,6 @@ const TextArea = styled.textarea`
   resize: none;
   border-style: solid;
   border-color: ${colors.lightBlue};
-
-  // non outline version
-  //border: none;
-  //border-bottom: 2px solid ${colors.lightBlue}; /* You can adjust the color */
-  //outline: none; /* Remove the default outline */
-  //padding: 1px; /* Adjust padding as needed */
 `;
 
 const NameInput = styled.input`
@@ -54,9 +48,6 @@ const Button = styled.button`
   color: ${colors.textColorLight};
   background: ${colors.lightBlue};
   margin-left: 10px;
-
-  //border-style: solid;
-  // border-color: ${colors.darkerGreen};
 `;
 
 const Label = styled.label`
@@ -95,8 +86,6 @@ const AddCommentForm: React.FC<Props> = (props) => {
   } = useForm<FormData>();
 
   const addComment = async (values) => {
-    console.log("-----------");
-    console.log(values);
     const mutationVariables = { post: props.postId, ...values };
     await props.addCommentMutation({ variables: mutationVariables });
     setSent(true);
