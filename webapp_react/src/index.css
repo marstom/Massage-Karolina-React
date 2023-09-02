@@ -18,3 +18,13 @@
           url(./assets/fonts/Raleway-Light.woff2) format("woff");
 }
 
+
+
+/*for strapi manual edit*/
+.handwritten {
+    font-family: "Handwritten";
+}
+
+.raleway-light {
+    font-family: "RalewayLight";
+}
