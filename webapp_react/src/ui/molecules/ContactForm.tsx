@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import InputTooltip from "./InputTooltip";
 import styled from "styled-components";
 import { colors } from "../palette";
-import { ContactPageQueryVariablesType } from "../types/contactPage";
 
 const Wrapper = styled.span<{ $width?: string }>`
   margin-right: 20px;

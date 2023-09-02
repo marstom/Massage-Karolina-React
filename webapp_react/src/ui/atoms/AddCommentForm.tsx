@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { colors } from "ui/palette";
 import { ApolloError } from "@apollo/client";
 import { CommentFormData } from "../types/commentForm";
+import { useForm } from "react-hook-form";
 
 const Div = styled.div`
   color: ${colors.textColor};
@@ -78,49 +79,27 @@ type Props = {
   addCommenterror: ApolloError | undefined;
   postId: string;
 };
-type Errors = {
-  commentError: boolean;
-  authorError: boolean;
-};
-const initialErrors = {
-  commentError: false,
-  authorError: false,
+
+type FormData = {
+  comment: string;
+  author: string;
 };
 
 const AddCommentForm: React.FC<Props> = (props) => {
   const [sent, setSent] = useState(false);
-  const [formData, setFormData] = useState<CommentFormData>(initialFormData);
-  const [validationErrors, setValidationErrors] =
-    useState<Errors>(initialErrors); // Dangerous! useState is async and wait for component rerender, but it's not return a promise
-  // it's dangerous to use it in async function!! Spent a lot on this bug.....
-  const errDivRef = useRef<HTMLDivElement>(null);
 
-  const hasError = (obj: { [key: string]: boolean }) => {
-    return Object.values(obj).some((value) => value === true);
-  };
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<FormData>();
 
-  useEffect(() => {
-    const validateFormErrors = () => {
-      const newErrors = {
-        authorError: formData.author.length <= 2,
-        commentError: formData.comment.length <= 2,
-      };
-      setValidationErrors(newErrors);
-    };
-    validateFormErrors();
-  }, [formData]);
-
-  const addComment = async () => {
-    if (errDivRef.current) {
-      errDivRef.current.removeAttribute("hidden");
-    }
-    if (hasError(validationErrors)) {
-      return;
-    } else {
-      const mutationVariables = { post: props.postId, ...formData };
-      await props.addCommentMutation({ variables: mutationVariables });
-      setSent(true);
-    }
+  const addComment = async (values) => {
+    console.log("-----------");
+    console.log(values);
+    const mutationVariables = { post: props.postId, ...values };
+    await props.addCommentMutation({ variables: mutationVariables });
+    setSent(true);
   };
 
   if (sent) {
@@ -131,32 +110,26 @@ const AddCommentForm: React.FC<Props> = (props) => {
     );
   }
   return (
-    <Div>
-      <CommentContainer>
-        <Label>Komentarz: </Label>
-        <TextArea
-          onChange={(e: FormEvent<HTMLTextAreaElement>) =>
-            setFormData({ ...formData, comment: e.currentTarget.value })
-          }
-          name={"comment"}
-        />
-      </CommentContainer>
-      <NameContainer>
-        <LabelName>Imię: </LabelName>
-        <NameInput
-          name={"name"}
-          type={"text"}
-          onChange={(e: FormEvent<HTMLInputElement>) =>
-            setFormData({ ...formData, author: e.currentTarget.value })
-          }
-        ></NameInput>
-        <Button onClick={() => addComment()}>Dodaj komentarz</Button>
-      </NameContainer>
-      <div hidden ref={errDivRef}>
-        {validationErrors.commentError && <div>Komentarz jest za krótki.</div>}
-        {validationErrors.authorError && <div>Pole nie może być puste!</div>}
-      </div>
-    </Div>
+    <form onSubmit={handleSubmit(addComment)}>
+      <Div>
+        <CommentContainer>
+          <Label>Komentarz: </Label>
+          <TextArea
+            {...register("comment", {
+              required: "Komentarz nie może być pusty.",
+            })}
+          />
+        </CommentContainer>
+        <NameContainer>
+          <LabelName>Imię: </LabelName>
+          <NameInput
+            type={"text"}
+            {...register("author", { required: "Podaj imię/nick." })}
+          ></NameInput>
+          <Button type="submit">Dodaj komentarz</Button>
+        </NameContainer>
+      </Div>
+    </form>
   );
 };
 
