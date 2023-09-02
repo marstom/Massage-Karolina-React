@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { colors, otherColors } from "ui/palette";
 import { Item } from "../atoms/NonStyledLink";
 import { DropdownMenu } from "../atoms/DropdownMenu";
+import { useSessionsQuery } from "../../graphql/queries/sessions";
 
 const MenuBar = styled.div`
   display: flex;
@@ -25,28 +26,43 @@ const Logo = styled.div`
   font-family: "ScriptBc";
 `;
 
-export const Menu = () => {
+type SessionsTypes = {
+  releaseSessions: { id: string; text: string }[];
+  massageSessions: { id: string; text: string }[];
+};
+
+export const Menu: React.FC<{}> = () => {
+  const { loading, error, data } = useSessionsQuery();
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :( mmm</p>;
   return (
     <MenuBar>
       <Logo>Karolina Banaszewska</Logo>
       <Item to={"/"}>O mnie</Item>
-      {/*<Item to={"/masaze"}>Masaże</Item>*/}
-      <DropdownMenu
-        links={[
-          { to: "/sesje/masaze/lomi-lomi", text: "Lomi-lomi" },
-          { to: "/sesje/masaze/tantra", text: "Tantra" },
-        ]}
-      >
-        Sesje dotyku
-      </DropdownMenu>
-      <DropdownMenu
-        links={[
-          { to: "/sesje/uwalnianie/ustawienia", text: "Ustawienia systemowe" },
-          { to: "/sesje/uwalnianie/access-bars", text: "Access Bars" },
-        ]}
-      >
-        Sesje uwalniające
-      </DropdownMenu>
+      {data && (
+        <DropdownMenu
+          links={data.sessions.data
+            .filter((session) => session.attributes.type === "dotyk")
+            .map((session) => ({
+              to: `/sesje/masaze/${session.id}`,
+              text: session.attributes.menuEntryText,
+            }))}
+        >
+          Sesje dotyku
+        </DropdownMenu>
+      )}
+      {data && (
+        <DropdownMenu
+          links={data.sessions.data
+            .filter((session) => session.attributes.type === "uwalnianie")
+            .map((session) => ({
+              to: `/sesje/uwalnianie/${session.id}`,
+              text: session.attributes.menuEntryText,
+            }))}
+        >
+          Sesje uwalniające
+        </DropdownMenu>
+      )}
       <Item to={"/blog"}>Blog</Item>
       <Item to={"/kontakt"}>Kontakt</Item>
     </MenuBar>

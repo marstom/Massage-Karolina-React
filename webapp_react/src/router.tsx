@@ -17,6 +17,7 @@ import { Tantra } from "./ui/pages/sessions/touch/Tantra";
 import { LomiLomi } from "./ui/pages/sessions/touch/LomiLomi";
 import { Ustawienia } from "./ui/pages/sessions/release/Ustawienia";
 import { AccessBars } from "./ui/pages/sessions/release/AccessBars";
+import Session from "./ui/pages/sessions/Session";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,8 @@ export const router = createBrowserRouter(
       <Route path="/" element={<App />}>
         <Route path="" element={<AboutMePage />} />
         <Route path="masaze" element={<Massage />} />
+        <Route path="sesje/masaze/:id" element={<Session />} />
+        <Route path="sesje/uwalnianie/:id" element={<Session />} />
         <Route path="sesje/masaze/tantra" element={<Tantra />} />
         <Route path="sesje/masaze/lomi-lomi" element={<LomiLomi />} />
         <Route path="sesje/uwalnianie/ustawienia" element={<Ustawienia />} />

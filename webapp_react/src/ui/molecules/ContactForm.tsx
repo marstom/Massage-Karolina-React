@@ -38,9 +38,7 @@ type FormData = {
   message: string;
 };
 const ContactForm: React.FC<{
-  createMessageMutation: (data: {
-    variables: ContactPageQueryVariablesType;
-  }) => Promise<void>;
+  createMessageMutation: CallableFunction;
 }> = ({ createMessageMutation }) => {
   const [sent, setSent] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);

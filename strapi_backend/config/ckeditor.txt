@@ -23,7 +23,7 @@ globalThis.CKEditorConfig = {
                     CKEditor5.image.ImageCaption,
                     CKEditor5.image.ImageStyle,
                     CKEditor5.image.ImageToolbar,
-                    CKEditor5.image.ImageUpload, 
+                    CKEditor5.image.ImageUpload,
                     CKEditor5.indent.Indent,
                     CKEditor5.basicStyles.Italic,
                     CKEditor5.link.Link,
@@ -32,11 +32,11 @@ globalThis.CKEditorConfig = {
                     CKEditor5.paragraph.Paragraph,
                     CKEditor5.table.Table,
                     CKEditor5.table.TableToolbar,
-                    CKEditor5.sourceEditing.SourceEditing, 
+                    CKEditor5.sourceEditing.SourceEditing,
                     CKEditor5.strapiPlugins.StrapiMediaLib,
                     CKEditor5.strapiPlugins.StrapiUploadAdapter,
                     CKEditor5.markdownGfm.Markdown,
-                    CKEditor5.basicStyles.Code, 
+                    CKEditor5.basicStyles.Code,
                     CKEditor5.codeBlock.CodeBlock,
                     CKEditor5.list.TodoList,
                     CKEditor5.basicStyles.Strikethrough,
@@ -72,6 +72,16 @@ globalThis.CKEditorConfig = {
                         'redo'
                     ],
                     shouldNotGroupWhenFull: true
+                },
+                heading: {
+                    options: [
+                        { model: 'paragraph', title: 'Normal', class: 'ck-heading_paragraph' },
+                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+                        // Add your custom font family here
+                        { model: 'customFont', view: { name: 'h1', classes: 'strapi-script-bc-font' }, title: 'ScriptBc' },
+                    ],
                 },
                 image: {
                     toolbar: [ 'imageStyle:inline', 'imageStyle:block', 'imageStyle:side', '|', 'toggleImageCaption', 'imageTextAlternative' ]
