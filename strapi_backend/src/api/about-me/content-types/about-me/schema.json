@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Header": {
-      "type": "string"
-    },
-    "SubHeader": {
-      "type": "string"
-    },
     "body": {
       "type": "customField",
       "options": {
