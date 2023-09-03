@@ -115,7 +115,6 @@ const ContactForm: React.FC<{
             variant={"textarea"}
             fullsize={true}
             register={register("message", {
-              required: "Treść wiadomości nie może być pusta.",
             })}
             error={errors.message && errors.message.message}
           />

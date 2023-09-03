@@ -18,7 +18,8 @@ export const LeavesImage = styled.div`
       rgba(61, 60, 60, 0.3)
     ),
     url(${leavesImg});
-  height: 100vh;
+  height: 80vh;
+  min-height: 900px;
   background-size: cover;
   position: relative;
   margin-top: -130px;
