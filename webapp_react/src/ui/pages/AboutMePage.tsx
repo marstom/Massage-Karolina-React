@@ -5,6 +5,7 @@ import { Content } from "ui/atoms/Content";
 import { colors } from "../palette";
 import { useAboutMeQuery } from "../../graphql/queries/aboutMe";
 import parse from "html-react-parser";
+import Spinner from "../atoms/spinner/Spinner";
 
 export const AboutMeContent = styled.div`
   padding-top: 120px;
@@ -100,6 +101,7 @@ export const AboutMePage: React.FC<Props> = (props) => {
 
       <Centered>
         <Paragraph>
+          {!data && <Spinner />}
           {data && parse(data.aboutMe.data.attributes.body)}
         </Paragraph>
       </Centered>

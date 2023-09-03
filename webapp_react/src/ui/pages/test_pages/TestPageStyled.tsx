@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 
 import CSS from "csstype";
+import Spinner from "../../atoms/spinner/Spinner";
 
 const a: CSS.Properties = {
   backgroundColor: "azure",
@@ -73,6 +74,9 @@ export const TestPageStyled = () => {
       <Input grow={8}></Input>
       <Input $padding={"2em"} grow={8}></Input>
       <Input $padding={"3em"} placeholder={"Padded"} grow={8}></Input>
+
+      <hr />
+      <Spinner />
     </Content>
   );
 };

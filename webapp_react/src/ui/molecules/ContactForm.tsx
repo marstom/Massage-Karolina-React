@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import InputTooltip from "./InputTooltip";
 import styled from "styled-components";
 import { colors } from "../palette";
+import Spinner from "../atoms/spinner/Spinner";
 
 const Wrapper = styled.span<{ $width?: string }>`
   margin-right: 20px;
@@ -48,7 +49,7 @@ const ContactForm: React.FC<{
   } = useForm<FormData>();
 
   if (loading) {
-    return <>loading...</>;
+    return <Spinner />;
   }
 
   if (sent) {
@@ -114,8 +115,7 @@ const ContactForm: React.FC<{
             inputLabel={"Wiadomość: "}
             variant={"textarea"}
             fullsize={true}
-            register={register("message", {
-            })}
+            register={register("message", {})}
             error={errors.message && errors.message.message}
           />
         </Wrapper>

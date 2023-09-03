@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import { AboutMePage } from "./ui/pages/AboutMePage";
-import { Massage } from "./ui/pages/Massage";
 import { BlogMainPage } from "./ui/pages/BlogMainPage";
 import { FullPostPage } from "./ui/pages/FullPostPage";
 import { ContactPage } from "./ui/pages/ContactPage";
@@ -20,7 +19,6 @@ export const router = createBrowserRouter(
     <>
       <Route path="/" element={<App />}>
         <Route path="" element={<AboutMePage />} />
-        <Route path="masaze" element={<Massage />} />
         <Route path="sesje/masaze/:id" element={<Session />} />
         <Route path="sesje/uwalnianie/:id" element={<Session />} />
         <Route path="blog" element={<BlogMainPage />} />

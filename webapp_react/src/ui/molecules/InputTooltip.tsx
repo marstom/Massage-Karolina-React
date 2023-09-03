@@ -8,13 +8,6 @@ const Label = styled.label`
   align-self: center;
 `;
 
-type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-};
-
 const Input = styled.input`
   font-size: 100%;
   width: 100%;
@@ -52,6 +45,7 @@ type Props = {
   fullsize?: boolean;
   error?: string;
 };
+
 function InputTooltip({
   inputLabel,
   variant,

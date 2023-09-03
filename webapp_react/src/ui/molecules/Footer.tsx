@@ -3,8 +3,10 @@ import React from "react";
 import { colors, otherColors } from "ui/palette";
 
 import styled from "styled-components";
-import { gql, useQuery } from "@apollo/client";
 import FooterLinkApiResponse from "../types/footerLink";
+import { useFooterLinks } from "../../graphql/queries/footerLinks";
+import Spinner from "../atoms/spinner/Spinner";
+import Error from "../atoms/Error";
 
 const Footer_ = styled.div`
   background-color: ${otherColors.black};
@@ -33,39 +35,13 @@ const Icon = styled.img`
   -webkit-filter: invert(1);
 `;
 
-const query = gql`
-  query FooterLink {
-    footerLink {
-      data {
-        id
-        attributes {
-          link {
-            name
-            icon {
-              data {
-                id
-                attributes {
-                  name
-                  url
-                }
-              }
-            }
-            url
-            positionFromRight
-          }
-        }
-      }
-    }
-  }
-`;
-
 type Props = {};
 export const Footer = (props: Props) => {
-  const { loading, error, data } = useQuery<FooterLinkApiResponse>(query);
+  const { loading, error, data } = useFooterLinks();
   const baseUrl = process.env.REACT_APP_BASE_BACKEND_URL;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :( mmm</p>;
+  if (loading) return <Spinner />;
+  if (error) return <Error />;
 
   const sortedData = (data: FooterLinkApiResponse) => {
     let linkData = [...data!.footerLink.data.attributes.link]; // copy

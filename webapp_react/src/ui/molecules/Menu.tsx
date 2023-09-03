@@ -4,6 +4,8 @@ import { colors, otherColors } from "ui/palette";
 import { Item } from "../atoms/NonStyledLink";
 import { DropdownMenu } from "../atoms/DropdownMenu";
 import { useSessionsQuery } from "../../graphql/queries/sessions";
+import Spinner from "../atoms/spinner/Spinner";
+import Error from "../atoms/Error";
 
 const MenuBar = styled.div`
   display: flex;
@@ -33,8 +35,8 @@ type SessionsTypes = {
 
 export const Menu: React.FC<{}> = () => {
   const { loading, error, data } = useSessionsQuery();
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :( mmm</p>;
+  if (loading) return <Spinner />;
+  if (error) return <Error />;
   return (
     <MenuBar>
       <Logo>Karolina Banaszewska</Logo>

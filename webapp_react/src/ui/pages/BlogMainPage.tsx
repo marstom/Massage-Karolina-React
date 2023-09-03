@@ -4,6 +4,8 @@ import { Content } from "ui/atoms/Content";
 import styled from "styled-components";
 import { BASE_URL } from "../../consts";
 import { useBlogPostsQuery } from "../../graphql/queries/posts";
+import Spinner from "../atoms/spinner/Spinner";
+import Error from "../atoms/Error";
 
 const BlogFlexContent = styled(Content)`
   display: flex;
@@ -17,8 +19,8 @@ const BlogFlexContent = styled(Content)`
 export const BlogMainPage: React.FC<{}> = () => {
   const { loading, error, data } = useBlogPostsQuery();
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :( mmm</p>;
+  if (loading) return <Spinner />;
+  if (error) return <Error />;
   return (
     <BlogFlexContent>
       {data &&

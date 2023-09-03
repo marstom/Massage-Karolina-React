@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Content } from "ui/atoms/Content";
 import ContactForm from "../molecules/ContactForm";
-import { gql } from "@apollo/client";
 import { useContactMessageMutation } from "../../graphql/mutations/contactMessage";
 
 const ContentWithMargin = styled(Content)`
