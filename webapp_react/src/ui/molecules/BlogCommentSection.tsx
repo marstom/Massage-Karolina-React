@@ -6,6 +6,7 @@ import AddCommentForm from "../atoms/AddCommentForm";
 import { gql, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { client } from "apolloClient";
+import { useCreateBlogCommentMutation } from "../../graphql/mutations/createPostComment";
 
 const CommentsSection = styled.div`
   padding-top: 10vh;
@@ -15,25 +16,10 @@ type Props = {
   comments: PostComments;
 };
 
-const createPostCommentMutation = gql`
-  mutation CreatePostComment($post: ID!, $comment: String!, $author: String!) {
-    createPostComment(
-      data: { post: $post, comment: $comment, author: $author }
-    ) {
-      data {
-        id
-      }
-    }
-  }
-`;
 export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
   const { id } = useParams();
-  const [mutateFunction, { data, loading, error }] = useMutation(
-    createPostCommentMutation,
-    {
-      variables: { id: "", comment: "", author: "" },
-    }
-  );
+  const [createPostCommentMutation, { data, loading, error }] =
+    useCreateBlogCommentMutation();
 
   useEffect(() => {
     const refresh = async () => {
@@ -61,7 +47,7 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
           />
         ))}
       <AddCommentForm
-        addCommentMutation={mutateFunction}
+        addCommentMutation={createPostCommentMutation}
         addCommentloading={loading}
         addCommenterror={error}
         postId={id}

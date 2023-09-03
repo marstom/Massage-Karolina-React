@@ -44,10 +44,8 @@ export const BlogMinifiedEntry = (props: Props) => {
     if (str.length <= maxLength) {
       return str;
     }
-
     const words = str.split(" ");
     let shortened = "";
-
     for (const word of words) {
       if ((shortened + word).length <= maxLength - 3) {
         // 3 for "..."

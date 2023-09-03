@@ -85,7 +85,7 @@ const AddCommentForm: React.FC<Props> = (props) => {
     formState: { errors },
   } = useForm<FormData>();
 
-  const addComment = async (values) => {
+  const addComment = async (values: FormData) => {
     const mutationVariables = { post: props.postId, ...values };
     await props.addCommentMutation({ variables: mutationVariables });
     setSent(true);
