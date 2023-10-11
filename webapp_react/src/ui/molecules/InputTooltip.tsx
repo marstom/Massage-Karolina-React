@@ -59,8 +59,16 @@ function InputTooltip({
     <Wrapper $fullsize={fullsize} $flexgrow={flexGrow ? 1 : flexGrow}>
       <Label>{inputLabel}</Label>
       <Tooltip direction={"top"} content={error}>
-        {variant === "text" && <Input type={"text"} {...register}></Input>}
-        {variant === "textarea" && <TextArea {...register}></TextArea>}
+        {variant === "text" && (
+          <Input
+            className="border-2 rounded"
+            type={"text"}
+            {...register}
+          ></Input>
+        )}
+        {variant === "textarea" && (
+          <TextArea className="border-2 rounded" {...register}></TextArea>
+        )}
       </Tooltip>
     </Wrapper>
   );

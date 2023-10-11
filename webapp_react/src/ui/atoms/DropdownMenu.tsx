@@ -8,21 +8,21 @@ import "./DropdownMenu.css";
 const Window = styled.div`
   width: 15%;
   margin-left: 25px;
-  margin-top: 20px;
+  //margin-top: 20px;
   position: fixed;
-  display: flex;
-  align-self: flex-start;
-  align-items: center;
+  //display: flex;
+  //align-self: flex-start;
+  //align-items: center;
   color: ${colors.menuTextColor};
 
   background: ${colors.black};
   border-top: 1mm ${colors.green};
-  border-bottom: 0mm;
-  border-left: 0mm;
-  border-right: 0mm;
+  //border-bottom: 0mm;
+  //border-left: 0mm;
+  //border-right: 0mm;
   border-style: solid;
   box-shadow: 0px 10px 30px 0px ${colors.primaryOpaque};
-  border-radius: 2%;
+  border-radius: 5px;
   animation: fadeInOut 400ms ease-in-out;
   transform-origin: top center;
 `;
@@ -68,11 +68,11 @@ type Props = {
 };
 
 export const DropdownMenu: React.FC<Props> = ({ children, links }) => {
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isDropdownVisible, setDropdownVisible] = useState(true);
   const visibleDropdown = () => {
     return (
-      <Window>
-        <List>
+      <Window className={"m-5"}>
+        <List className={"pl-4 pt-3"}>
           {links.map((link) => (
             <li key={link.to}>
               <NonStyledLink to={`${link.to}`}>{link.text}</NonStyledLink>

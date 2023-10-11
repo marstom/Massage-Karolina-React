@@ -74,19 +74,20 @@ export const AboutMePage: React.FC<Props> = (props) => {
   return (
     <Content>
       <LeavesImage>
-        <h1>Karolina</h1>
-        <h2>Sztuka Dotyku</h2>
-        <p>
+        <h1 className="pb-2 text-6xl font-extrabold">Karolina</h1>
+        <h2 className="pb-3 text-3xl font-bold">Sztuka Dotyku</h2>
+        <p className="pb-4">
           <i>Lomi Lomi</i>
         </p>
-        <p>
+        <p className="pb-4">
           <i>Tantra</i>
         </p>
-        <p>
+        <p className="pb-4 mb-5">
           <i>Access Bars</i>
         </p>
-        <p>
+        <p className="flex-row">
           <iframe
+            className="m-auto"
             width="760"
             height="428"
             src="https://www.youtube.com/embed/xm0zT8Sim3c?si=2wuxdCRRhf0RidcK"

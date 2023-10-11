@@ -1,23 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-  font-family: "ScriptBc";
-  src:
-    local("ScriptBc"),
+    font-family: "ScriptBc";
+    src: local("ScriptBc"),
     url(./assets/fonts/script-bc.woff) format("woff");
 }
+
 @font-face {
-  font-family: "Handwritten";
-  src:
-          local("Handwritten"),
-          url(./assets/fonts/HandwrittenRound.woff2) format("woff");
+    font-family: "Handwritten";
+    src: local("Handwritten"),
+    url(./assets/fonts/HandwrittenRound.woff2) format("woff");
 }
 
 @font-face {
-  font-family: "RalewayLight";
-  src:
-          local("RalewayLight"),
-          url(./assets/fonts/Raleway-Light.woff2) format("woff");
+    font-family: "RalewayLight";
+    src: local("RalewayLight"),
+    url(./assets/fonts/Raleway-Light.woff2) format("woff");
 }
-
 
 
 /*for strapi manual edit*/
@@ -27,4 +28,18 @@
 
 .raleway-light {
     font-family: "RalewayLight";
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 1.5rem 1.5rem 0;
+}
+
+
+
+h4{
+    font-size: 2rem;
+    margin: 0 1.2rem 1.2rem 0;
+    font-weight: bold;
 }

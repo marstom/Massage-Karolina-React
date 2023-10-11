@@ -91,3 +91,8 @@ https://css-generators.com/wavy-shapes/
 
 ## React:
 - [Kolejność .env plików](https://create-react-app.dev/docs/adding-custom-environment-variables/)
+
+
+## Tailwind
+
+- Jakie są domyślne style znajdę tutaj: https://tailwindcss.com/docs/preflight

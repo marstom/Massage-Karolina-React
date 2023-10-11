@@ -120,7 +120,12 @@ const ContactForm: React.FC<{
           />
         </Wrapper>
         <span style={{ marginLeft: "auto" }}>
-          <Button type={"submit"}>Wyślij</Button>
+          <Button
+            className="rounded hover:bg-hovered-button focus:bg-hold-button"
+            type={"submit"}
+          >
+            Wyślij
+          </Button>
         </span>
       </Flex>
     </form>
