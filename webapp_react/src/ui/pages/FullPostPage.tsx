@@ -9,7 +9,7 @@ import Spinner from "../atoms/spinner/Spinner";
 import Error from "../atoms/Error";
 
 export const ContentPost = styled(Content)`
-  margin: 50px;
+  margin: 9rem 50px 50px 50px;
 
   .image-style-align-left {
     color: rgb(0, 0, 255);

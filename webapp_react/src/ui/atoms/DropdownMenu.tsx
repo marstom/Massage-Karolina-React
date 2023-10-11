@@ -68,11 +68,11 @@ type Props = {
 };
 
 export const DropdownMenu: React.FC<Props> = ({ children, links }) => {
-  const [isDropdownVisible, setDropdownVisible] = useState(true);
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
   const visibleDropdown = () => {
     return (
-      <Window className={"m-5"}>
-        <List className={"pl-4 pt-3"}>
+      <Window className="lg:m-5 max-lg:min-w-[50%]  z-10">
+        <List className="pl-4 pt-3">
           {links.map((link) => (
             <li key={link.to}>
               <NonStyledLink to={`${link.to}`}>{link.text}</NonStyledLink>

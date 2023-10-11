@@ -9,10 +9,10 @@ import Error from "../atoms/Error";
 
 const MenuBar = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  //flex-flow: row wrap;
   align-content: center;
   justify-content: center;
-  background: ${otherColors.secondaryOpaque};
+  // background: ${otherColors.secondaryOpaque};
   color: ${colors.menuTextColor};
   padding-top: 55px;
   padding-bottom: 10px;
@@ -38,35 +38,45 @@ export const Menu: React.FC<{}> = () => {
   if (loading) return <Spinner />;
   if (error) return <Error />;
   return (
-    <MenuBar>
+    <MenuBar className="flex flex-col lg:flex-row gap-4 items-center lg:gap-0 bg-secondaryOpaque lg:bg-secondaryOpaque">
       <Logo>Karolina Banaszewska</Logo>
-      <Item to={"/"}>O mnie</Item>
+      <Item className="" to={"/"}>
+        O mnie
+      </Item>
       {data && (
-        <DropdownMenu
-          links={data.sessions.data
-            .filter((session) => session.attributes.type === "dotyk")
-            .map((session) => ({
-              to: `/sesje/masaze/${session.id}`,
-              text: session.attributes.menuEntryText,
-            }))}
-        >
-          Sesje dotyku
-        </DropdownMenu>
+        <span className="mt-auto mb-auto">
+          <DropdownMenu
+            links={data.sessions.data
+              .filter((session) => session.attributes.type === "dotyk")
+              .map((session) => ({
+                to: `/sesje/masaze/${session.id}`,
+                text: session.attributes.menuEntryText,
+              }))}
+          >
+            Sesje dotyku
+          </DropdownMenu>
+        </span>
       )}
       {data && (
-        <DropdownMenu
-          links={data.sessions.data
-            .filter((session) => session.attributes.type === "uwalnianie")
-            .map((session) => ({
-              to: `/sesje/uwalnianie/${session.id}`,
-              text: session.attributes.menuEntryText,
-            }))}
-        >
-          Sesje uwalniające
-        </DropdownMenu>
+        <span className="mt-auto mb-auto ">
+          <DropdownMenu
+            links={data.sessions.data
+              .filter((session) => session.attributes.type === "uwalnianie")
+              .map((session) => ({
+                to: `/sesje/uwalnianie/${session.id}`,
+                text: session.attributes.menuEntryText,
+              }))}
+          >
+            Sesje uwalniające
+          </DropdownMenu>
+        </span>
       )}
-      <Item to={"/blog"}>Blog</Item>
-      <Item to={"/kontakt"}>Kontakt</Item>
+      <Item className="" to={"/blog"}>
+        Blog
+      </Item>
+      <Item className="" to={"/kontakt"}>
+        Kontakt
+      </Item>
     </MenuBar>
   );
 };

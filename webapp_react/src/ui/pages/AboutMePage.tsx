@@ -87,9 +87,8 @@ export const AboutMePage: React.FC<Props> = (props) => {
         </p>
         <p className="flex-row">
           <iframe
-            className="m-auto"
-            width="760"
-            height="428"
+            className="m-auto aspect-video lg:w-[760px] w-[260px]"
+            // className={"max-lg:..."}
             src="https://www.youtube.com/embed/xm0zT8Sim3c?si=2wuxdCRRhf0RidcK"
             title="YouTube video player"
             frameBorder="0"

@@ -19,7 +19,6 @@ export const NonStyledLink = styled(Link)`
 
 export const Item = styled(NonStyledLink)`
   font-size: 150%;
-  //background: #15342b;
   margin: 10px;
   color: ${colors.menuTextColor}
   padding-block: 15px;
