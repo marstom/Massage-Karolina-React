@@ -75,7 +75,7 @@ const AddCommentForm: React.FC<Props> = (props) => {
   if (sent) {
     return (
       <CommentContainer>
-        <i>Dziękuję za opinie!</i>
+        <i className="mt-5">Dziękuję za opinie!</i>
       </CommentContainer>
     );
   }

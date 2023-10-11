@@ -23,7 +23,7 @@ export const LeavesImage = styled.div`
   min-height: 900px;
   background-size: cover;
   position: relative;
-  margin-top: -130px;
+  margin-top: -9.5rem;
   width: 100%;
   top: 0px;
   bottom: 0px;

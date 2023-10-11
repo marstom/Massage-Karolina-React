@@ -19,24 +19,24 @@ export const otherColors = {
   black: "rgb(26,26,26)",
 };
 
-primaryColors.primary = Color(primaryColors.primary)
-  .lighten(0.0)
-  .saturate(0.0)
-  .rotate(0)
-  .hex();
-primaryColors.secondary = Color(primaryColors.secondary).lighten(0.0).string();
-primaryColors.lightBlue = Color(primaryColors.lightBlue).lighten(0.0).string();
-primaryColors.textColor = Color(primaryColors.textColor).darken(0.0).string();
-
-otherColors.green = Color(otherColors.green).lighten(0.0).string();
-otherColors.darkerGreen = Color(otherColors.darkerGreen).lighten(0.0).string();
-otherColors.lightBg = Color(otherColors.lightBg).lighten(0.0).string();
-otherColors.primaryOpaque = Color(otherColors.primaryOpaque)
-  .lighten(0.0)
-  .string();
-otherColors.secondaryOpaque = Color(otherColors.secondaryOpaque)
-  .lighten(0.0)
-  .string();
-otherColors.black = Color(otherColors.black).darken(0.0).string();
+// primaryColors.primary = Color(primaryColors.primary)
+//   .lighten(0.0)
+//   .saturate(0.0)
+//   .rotate(0)
+//   .hex();
+// primaryColors.secondary = Color(primaryColors.secondary).lighten(0.0).string();
+// primaryColors.lightBlue = Color(primaryColors.lightBlue).lighten(0.0).string();
+// primaryColors.textColor = Color(primaryColors.textColor).darken(0.0).string();
+//
+// otherColors.green = Color(otherColors.green).lighten(0.0).string();
+// otherColors.darkerGreen = Color(otherColors.darkerGreen).lighten(0.0).string();
+// otherColors.lightBg = Color(otherColors.lightBg).lighten(0.0).string();
+// otherColors.primaryOpaque = Color(otherColors.primaryOpaque)
+//   .lighten(0.0)
+//   .string();
+// otherColors.secondaryOpaque = Color(otherColors.secondaryOpaque)
+//   .lighten(0.0)
+//   .string();
+// otherColors.black = Color(otherColors.black).darken(0.0).string();
 
 export const colors = { ...primaryColors, ...otherColors };

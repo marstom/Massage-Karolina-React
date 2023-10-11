@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  padding-top: 130px;
+  margin-top: 9.5rem;
   font-size: 120%;
   line-height: 130%;
 `;
