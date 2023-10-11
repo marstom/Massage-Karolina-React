@@ -4,6 +4,7 @@ import InputTooltip from "./InputTooltip";
 import styled from "styled-components";
 import { colors } from "../palette";
 import Spinner from "../atoms/spinner/Spinner";
+import Button from "../atoms/Button";
 
 const Wrapper = styled.span<{ $width?: string }>`
   margin-right: 20px;
@@ -17,18 +18,6 @@ const Flex = styled.div`
   gap: 1em;
   margin: 1em;
   flex-wrap: wrap;
-`;
-
-const Button = styled.button`
-  background: ${colors.lightBlue};
-  color: ${colors.textColorLight};
-  flex-grow: 1;
-  max-width: 14em;
-  min-width: 8em;
-  align-self: flex-start;
-  font-size: 100%;
-  padding: 0.5em;
-  margin-right: 1em;
 `;
 
 type FormData = {
@@ -120,10 +109,7 @@ const ContactForm: React.FC<{
           />
         </Wrapper>
         <span style={{ marginLeft: "auto" }}>
-          <Button
-            className="rounded hover:bg-hovered-button focus:bg-hold-button"
-            type={"submit"}
-          >
+          <Button className={"w-[12rem] h-12 mr-4"} type={"submit"}>
             Wyślij
           </Button>
         </span>

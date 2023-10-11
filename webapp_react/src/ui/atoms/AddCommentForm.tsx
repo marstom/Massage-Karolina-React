@@ -4,6 +4,7 @@ import { colors } from "ui/palette";
 import { ApolloError } from "@apollo/client";
 import { CommentFormData } from "../types/commentForm";
 import { useForm } from "react-hook-form";
+import Button from "./Button";
 
 const Div = styled.div`
   color: ${colors.textColor};
@@ -12,14 +13,7 @@ const CommentContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1vh;
-  //max-width: 80%;
   margin: 5px;
-`;
-const NameContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  row-gap: 1vh;
-  margin: 15px 0px 0px 0px;
 `;
 
 const TextArea = styled.textarea`
@@ -33,21 +27,8 @@ const TextArea = styled.textarea`
 
 const NameInput = styled.input`
   background: ${colors.primary};
-  flex-grow: 3;
-  max-width: 50%;
   color: ${colors.textColor};
-
-  border-style: solid;
   border-color: ${colors.lightBlue};
-`;
-
-const Button = styled.button`
-  padding: 0.2em;
-  flex-grow: 2;
-  max-width: 10%;
-  color: ${colors.textColorLight};
-  background: ${colors.lightBlue};
-  margin-left: 10px;
 `;
 
 const Label = styled.label`
@@ -56,7 +37,7 @@ const Label = styled.label`
 `;
 
 const LabelName = styled(Label)`
-  margin-left: auto; // it align whole thing to left
+  margin-left: auto;
 `;
 
 const initialFormData: CommentFormData = {
@@ -100,23 +81,27 @@ const AddCommentForm: React.FC<Props> = (props) => {
   }
   return (
     <form onSubmit={handleSubmit(addComment)}>
-      <Div>
+      <Div className="flex flex-col gap-y-6">
         <CommentContainer>
           <Label>Komentarz: </Label>
           <TextArea
+            className={"border-2 rounded p-2"}
             {...register("comment", {
               required: "Komentarz nie może być pusty.",
             })}
           />
         </CommentContainer>
-        <NameContainer>
-          <LabelName>Imię: </LabelName>
+        <div className="flex flex-row">
+          <LabelName className="m-auto">Imię: </LabelName>
           <NameInput
+            className={"border-2 rounded basis-1/2 grow p-2"}
             type={"text"}
             {...register("author", { required: "Podaj imię/nick." })}
-          ></NameInput>
-          <Button type="submit">Dodaj komentarz</Button>
-        </NameContainer>
+          />
+          <Button type="submit" className={"w-[18rem] h-[2.7rem] ml-5"}>
+            Dodaj komentarz
+          </Button>
+        </div>
       </Div>
     </form>
   );
