@@ -14,8 +14,9 @@ type Props = {
   id: string;
   comment: string;
   author: string;
+  createdAt: string;
 };
-const BlogComment: React.FC<Props> = ({ id, comment, author }) => {
+const BlogComment: React.FC<Props> = ({ id, comment, author, createdAt }) => {
   return (
     <PostDiv className="border-0 rounded p-0 mt-7" key={id}>
       <div className="p-2">{comment}</div>
@@ -25,7 +26,7 @@ const BlogComment: React.FC<Props> = ({ id, comment, author }) => {
           <span className="text-xs">{author}</span>
         </i>
         <i className="float-right text-gray-700 mr-4">
-          <span className=" text-xs">Data: 11-221-22</span>
+          <span className=" text-xs">Data: {createdAt}</span>
         </i>
       </div>
     </PostDiv>

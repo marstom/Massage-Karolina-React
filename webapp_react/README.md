@@ -96,3 +96,4 @@ https://css-generators.com/wavy-shapes/
 ## Tailwind
 
 - Jakie są domyślne style znajdę tutaj: https://tailwindcss.com/docs/preflight
+- Playground https://play.tailwindcss.com/

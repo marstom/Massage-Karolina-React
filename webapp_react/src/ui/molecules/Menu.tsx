@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { colors, otherColors } from "ui/palette";
 import { Item } from "../atoms/NonStyledLink";
@@ -8,21 +8,17 @@ import Spinner from "../atoms/spinner/Spinner";
 import Error from "../atoms/Error";
 
 const MenuBar = styled.div`
-  display: flex;
-  //flex-flow: row wrap;
   align-content: center;
   justify-content: center;
-  // background: ${otherColors.secondaryOpaque};
   color: ${colors.menuTextColor};
   padding-top: 55px;
   padding-bottom: 10px;
-  position: fixed;
   width: 100%;
   z-index: 100;
 `;
 
 const Logo = styled.div`
-  position: fixed;
+  position: absolute;
   top: 1.2vh;
   font-size: 35px;
   font-family: "ScriptBc";
@@ -34,11 +30,54 @@ type SessionsTypes = {
 };
 
 export const Menu: React.FC<{}> = () => {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const handleWheel = (e: any) => {
+    console.log("WHelel, ", e);
+    if (e.deltaY > 0) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+  };
+  const handleScroll = (e: any) => {
+    console.log(e);
+    const currentScrollPos = window.scrollY;
+    // console.log(currentScrollPos);
+
+    if (currentScrollPos > prevScrollPos) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+
+    setPrevScrollPos(currentScrollPos);
+    // console.log(visible);
+  };
+  useEffect(() => {
+    // window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      // window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const { loading, error, data } = useSessionsQuery();
   if (loading) return <Spinner />;
   if (error) return <Error />;
+
   return (
-    <MenuBar className="flex flex-col lg:flex-row gap-4 items-center lg:gap-0 bg-secondaryOpaque lg:bg-secondaryOpaque">
+    <MenuBar
+      className={`flex flex-col lg:flex-row gap-4 items-center
+      transition duration-700 ease-in-out
+     lg:gap-0 bg-secondaryOpaque lg:bg-secondaryOpaque
+     fixed max-lg:fixed
+     ${visible ? "" : "max-lg:translate-y-[-28rem]"}
+      `}
+    >
       <Logo>Karolina Banaszewska</Logo>
       <Item className="" to={"/"}>
         O mnie

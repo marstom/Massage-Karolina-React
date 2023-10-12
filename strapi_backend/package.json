@@ -5,6 +5,7 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
+    "develop_local": "HOST=0.0.0.0 strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"

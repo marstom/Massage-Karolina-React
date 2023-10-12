@@ -7,6 +7,7 @@ import { gql, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { client } from "apolloClient";
 import { useCreateBlogCommentMutation } from "../../graphql/mutations/createPostComment";
+import moment from "moment";
 
 const CommentsSection = styled.div`
   padding-top: 10vh;
@@ -44,6 +45,7 @@ export const BlogCommentSection: React.FC<Props> = ({ comments }) => {
             key={post.id}
             comment={post.attributes.comment}
             author={post.attributes.author}
+            createdAt={moment(post.attributes.createdAt).format("DD.MM.YYYY")}
           />
         ))}
       <AddCommentForm
