@@ -1,2 +1,9 @@
 # Folder contains docker container data like images and database
 _data/ 
+
+
+# backups
+___data/
+
+# mac
+.DS_Store
